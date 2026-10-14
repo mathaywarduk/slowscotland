@@ -1,11 +1,20 @@
-{% comment %} The "Start the journey" form. Wire up via signup.mailchimp_action in _config.yml. {% endcomment %}
+{% comment %}
+  The "Start the journey" form. Posts to Mailchimp (signup.* in _config.yml).
+  With JavaScript it submits in the background and shows a message here
+  (assets/js/app.js); without it, Mailchimp's own page opens in a new tab.
+{% endcomment %}
 <div class="signup-form">
   <h2 class="signup-form__heading">{{ site.signup.heading }}</h2>
-  <form action="{{ site.signup.mailchimp_action | default: '#' }}" method="post" target="_blank" novalidate>
+  <form action="{{ site.signup.mailchimp_action }}" method="post" target="_blank" data-signup data-success="{{ site.signup.success | escape }}" data-error="{{ site.signup.error | escape }}">
     <div class="signup-form__row">
       <input type="email" name="EMAIL" id="signup-email-{{ include.id | default: 'main' }}" placeholder="{{ site.signup.placeholder }}" aria-label="Email address" autocomplete="email" required>
       <button type="submit">{{ site.signup.button }}</button>
     </div>
+    {% comment %} Honeypot: hidden from people, bots fill it in and get rejected. {% endcomment %}
+    <div class="signup-form__hp" aria-hidden="true">
+      <input type="text" name="{{ site.signup.mailchimp_honeypot }}" tabindex="-1" value="" autocomplete="off">
+    </div>
+    <p class="signup-form__status" role="status" aria-live="polite" hidden></p>
   </form>
   <p class="signup-form__note">{{ site.signup.note }} <a href="/privacy/">{{ site.signup.privacy_link }}</a></p>
 </div>

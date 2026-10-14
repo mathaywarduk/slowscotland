@@ -127,3 +127,7 @@
     font-size: 19px;
   }
 }
+
+.page__button {
+  margin-top: 40px;
+}

@@ -10,6 +10,7 @@
     {% endif %}
     {% assign description = page.description | default: site.description %}
     <meta name="description" content="{{ description | strip_html | strip }}">
+    {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
 
     <link rel="preload" href="/assets/fonts/Sentient-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/DMSans-400-normal.woff2" as="font" type="font/woff2" crossorigin>

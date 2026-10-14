@@ -10,6 +10,7 @@ layout: default
       <div class="prose page__body">
         {{ content }}
       </div>
+      {% if page.button %}<a class="button page__button" href="{{ page.button.url }}">{{ page.button.text }}</a>{% endif %}
     </div>
   </div>
 </article>

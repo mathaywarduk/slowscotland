@@ -13,3 +13,62 @@ document.addEventListener('click', function (event) {
   input.focus({ preventScroll: true });
   history.replaceState(null, '', '#signup');
 });
+
+// Signup forms: submit to Mailchimp in the background (JSONP) and show a
+// message under the field. Without JavaScript the form posts normally.
+document.querySelectorAll('form[data-signup]').forEach(function (form) {
+  var status = form.querySelector('.signup-form__status');
+  var input = form.querySelector('input[type="email"]');
+  var button = form.querySelector('button[type="submit"]');
+
+  function show(message, isError) {
+    status.textContent = message;
+    status.hidden = false;
+    status.classList.toggle('is-error', !!isError);
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (!input.checkValidity()) {
+      show('Please enter a valid email address.', true);
+      input.focus();
+      return;
+    }
+
+    var callback = 'mcSignup' + Date.now();
+    var params = new URLSearchParams(new FormData(form));
+    params.set('c', callback);
+    var url = form.action.replace('/post?', '/post-json?') + '&' + params.toString();
+    var script = document.createElement('script');
+
+    function cleanUp() {
+      delete window[callback];
+      script.remove();
+      button.disabled = false;
+    }
+
+    window[callback] = function (data) {
+      cleanUp();
+      if (data && data.result === 'success') {
+        form.reset();
+        show(form.dataset.success);
+      } else {
+        // Mailchimp messages can contain HTML and a "0 - " prefix
+        var tmp = document.createElement('div');
+        tmp.innerHTML = (data && data.msg) || '';
+        var message = tmp.textContent.replace(/^\d+ - /, '').trim();
+        show(message || form.dataset.error, true);
+      }
+    };
+
+    script.onerror = function () {
+      cleanUp();
+      show(form.dataset.error, true);
+    };
+
+    button.disabled = true;
+    script.src = url;
+    document.body.appendChild(script);
+  });
+});
