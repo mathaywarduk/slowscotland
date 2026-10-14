@@ -41,7 +41,7 @@ signup:
   locked_link: "Sign up free"
 
 # Markdown, so links work
-footer: "Slow Scotland is an email series from [Mat Hayward](https://mathayward.com)"
+footer: 'Slow Scotland is an email series from [Mat Hayward](https://mathayward.com){:target="_blank" rel="noopener"}'
 copyright: "Mat Hayward"
 
 nav:

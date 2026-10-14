@@ -39,14 +39,19 @@
   overflow: hidden;
 }
 
-.story-hero--lifted .story-hero__img,
-.story-hero--lifted::after {
+/*
+  Positioned from both edges rather than with a calculated height: the
+  production CSS minifier strips the spaces around "+" in calc(), which
+  breaks it. The fade overlaps the photo's edge by 2px to hide a hairline.
+*/
+.story-hero--lifted .story-hero__img {
   inset: 0 0 auto 0;
-  height: calc(100% - var(--lift) + 2px);
+  height: calc(100% - var(--lift));
 }
 
-.story-hero--lifted .story-hero__img {
-  height: calc(100% - var(--lift));
+.story-hero--lifted::after {
+  inset: 0 0 calc(var(--lift) - 2px) 0;
+  height: auto;
 }
 
 .story-hero--lifted::after {
