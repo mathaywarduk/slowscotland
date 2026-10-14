@@ -73,7 +73,7 @@ Notes:
 
 - The hero photo is a background image so the heading can sit over it, which means it can't be swapped in the editor. Upload the photo to Content Studio, then in the code view replace the hero image URL (`stac-pollaidh.jpg` by default; three times, all in the hero block). It's cropped around 70% down the photo, so subjects in the lower half stay in frame on wide screens. Classic Outlook on Windows shows the photo with the heading on a solid dark band below it.
 - The heading rule is a small image (`rule-light.png`). Cut and paste it to move it.
-- The logo, rule and fade images, and the fonts, load from `https://slowscotland.uk/assets/`, so the site needs to be live before sending. Fonts show in Apple Mail and iOS; other clients fall back to Georgia and Helvetica.
+- The logo, rule and fade images, and the fonts, load from `https://www.slowscotland.uk/assets/`, so the site needs to be live before sending. Fonts show in Apple Mail and iOS; other clients fall back to Georgia and Helvetica.
 - Leave Mailchimp's automatic CSS inlining switched on (the default).
 - Each band (header, hero, story, notes, collage, footer) runs the full width of the email with its content in a centred 600px column.
 
