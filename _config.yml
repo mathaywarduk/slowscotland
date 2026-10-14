@@ -56,6 +56,7 @@ exclude:
   - postcss.config.js
   - tailwind.config.js
   - README.md
+  - netlify.toml
   - Gemfile
   - Gemfile.lock
   - node_modules

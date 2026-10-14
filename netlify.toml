@@ -1,0 +1,10 @@
+# Netlify build settings. Netlify installs the gems (Gemfile) and npm
+# packages (package.json) itself, then runs the build command.
+[build]
+  command = "bundle exec jekyll build"
+  publish = "_site"
+
+[build.environment]
+  JEKYLL_ENV = "production"
+  RUBY_VERSION = "3.3.5"
+  NODE_VERSION = "22"
