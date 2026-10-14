@@ -1,7 +1,9 @@
 # Netlify build settings. Netlify installs the gems (Gemfile) and npm
 # packages (package.json) itself, then runs the build command.
 [build]
-  command = "bundle exec jekyll build"
+  # Set SITE_HIDDEN=true in Netlify's environment variables to serve a holding
+  # page instead of the site (assets stay reachable for the email templates).
+  command = "bundle exec jekyll build && if [ \"$SITE_HIDDEN\" = \"true\" ]; then sh scripts/hide-site.sh; fi"
   publish = "_site"
 
 [build.environment]

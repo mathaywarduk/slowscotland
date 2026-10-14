@@ -1,0 +1,30 @@
+---
+layout: none
+permalink: /holding/
+# Holding page served for every URL while SITE_HIDDEN=true is set in Netlify.
+# See scripts/hide-site.sh.
+---
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>{{ site.title }}</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <style>
+      html, body { margin: 0; height: 100%; background: #0D0A06; }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0D0A06 url("/assets/images/home-hero.jpg") center / cover no-repeat;
+      }
+      img { width: min(280px, 50vw); height: auto; }
+    </style>
+  </head>
+  <body>
+    <img src="/assets/images/logo.svg" alt="Slow Scotland" width="545" height="308">
+  </body>
+</html>

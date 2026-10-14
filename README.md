@@ -77,3 +77,9 @@ Notes:
 - Leave Mailchimp's automatic CSS inlining switched on (the default).
 - Each band (header, hero, story, notes, collage, footer) runs the full width of the email with its content in a centred 600px column.
 
+
+## Hosting
+
+Hosted on Netlify, which builds the site on every push to `main` (settings in `netlify.toml`).
+
+To hide the site temporarily, set the environment variable `SITE_HIDDEN` to `true` in Netlify (Project configuration → Environment variables) and redeploy. Every page then shows a holding page (`holding.html`), hidden from search engines, while `/assets/` stays reachable for the email templates. Delete the variable and redeploy to bring the site back.
