@@ -2,15 +2,11 @@
 layout: default
 ---
 <article class="page">
-  <div class="offset">
-    <div class="offset__aside"></div>
-    <div class="offset__main">
-      {% assign heading = page.heading | default: page.title %}
-      {% include h1.html text=heading %}
-      <div class="prose page__body">
-        {{ content }}
-      </div>
-      {% if page.button %}<a class="button page__button" href="{{ page.button.url }}">{{ page.button.text }}</a>{% endif %}
-    </div>
+  {% assign heading = page.heading | default: page.title %}
+  {% include h1.html text=heading %}
+  <div class="prose page__body">
+    {{ content }}
   </div>
+  {% include signoff.html name=page.signoff %}
+  {% if page.button %}<a class="button page__button" href="{{ page.button.url }}">{{ page.button.text }}</a>{% endif %}
 </article>

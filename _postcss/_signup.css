@@ -106,6 +106,14 @@
   line-height: 1.4;
 }
 
+.signup-form__status {
+  transition: opacity .6s ease;
+}
+
+.signup-form__status.is-hiding {
+  opacity: 0;
+}
+
 .signup-form__status.is-error {
   color: #F2B8A0;
 }

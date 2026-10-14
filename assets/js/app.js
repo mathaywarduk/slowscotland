@@ -21,10 +21,22 @@ document.querySelectorAll('form[data-signup]').forEach(function (form) {
   var input = form.querySelector('input[type="email"]');
   var button = form.querySelector('button[type="submit"]');
 
+  var hideTimer;
+
   function show(message, isError) {
+    clearTimeout(hideTimer);
     status.textContent = message;
     status.hidden = false;
+    status.classList.remove('is-hiding');
     status.classList.toggle('is-error', !!isError);
+
+    // Success fades out after 5 seconds; errors stay until the next attempt
+    if (!isError) {
+      hideTimer = setTimeout(function () {
+        status.classList.add('is-hiding');
+        setTimeout(function () { status.hidden = true; }, 600);
+      }, 5000);
+    }
   }
 
   form.addEventListener('submit', function (event) {

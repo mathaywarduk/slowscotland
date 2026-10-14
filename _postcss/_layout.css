@@ -77,9 +77,9 @@
 }
 
 /* Simple text page (privacy) */
+/* Left-aligned to the page margin, like the stories intro */
 .page {
-  padding-top: 64px;
-  padding-bottom: 96px;
+  padding: 64px var(--pad) 96px;
 }
 
 .page .h1 {
