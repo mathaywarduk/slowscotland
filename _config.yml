@@ -1,0 +1,56 @@
+url: "https://slowscotland.uk"
+title: "Slow Scotland"
+description: "Scotland's quieter experiences, scenes and detours, told through photography and short stories."
+
+plugins:
+  - jekyll-postcss
+  - jekyll-minifier
+
+# Public stories: one Markdown file each, with its own page.
+# Teasers: locked stories that arrive by email. Front matter only, no page.
+# To make a teaser public, move its file from _teasers to _stories and add the story.
+collections:
+  stories:
+    output: true
+    permalink: /stories/:name/
+  teasers:
+    output: false
+
+defaults:
+  - scope:
+      type: stories
+    values:
+      layout: story
+      signoff: Mat
+
+# Signup form. Paste the Mailchimp embedded form action URL here when ready.
+# e.g. https://slowscotland.us21.list-manage.com/subscribe/post?u=XXXX&id=YYYY
+signup:
+  mailchimp_action: ""
+  heading: "Start the journey"
+  placeholder: "Enter your email address"
+  button: "Go"
+  note: "One email a week, for twelve weeks."
+  privacy_link: "Read our privacy policy"
+  locked_cta: "Arrives by email."
+  locked_link: "Sign up free"
+
+footer: "Slow Scotland is an email series from Mat Hayward"
+copyright: "Mat Hayward"
+
+nav:
+  - title: Stories
+    url: /stories/
+  - title: About
+    url: /about/
+
+exclude:
+  - package.json
+  - package-lock.json
+  - postcss.config.js
+  - tailwind.config.js
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - email

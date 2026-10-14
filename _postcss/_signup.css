@@ -1,0 +1,96 @@
+/* "Start the journey" form. Sizes are in em so it can scale on the home page. */
+.signup-form {
+  font-size: 17px;
+}
+
+.signup-form__heading {
+  font-size: 1.65em;
+  margin-bottom: .45em;
+}
+
+.signup-form__row {
+  display: flex;
+}
+
+.signup-form input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 2.7em;
+  padding: 0 .9em;
+  border: 0;
+  border-radius: 0;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+}
+
+.signup-form input::placeholder {
+  color: #4a4038;
+  opacity: 1;
+}
+
+.signup-form button {
+  flex: 0 0 auto;
+  width: 4.7em;
+  height: 2.7em;
+  border: 0;
+  background: var(--button);
+  color: var(--on-image);
+  font: inherit;
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+
+.signup-form button:hover,
+.signup-form button:focus-visible {
+  background: #a46d37;
+}
+
+.signup-form__note {
+  margin-top: .8em;
+  font-size: .82em;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.signup-form__note a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.signup {
+  padding: 64px var(--pad);
+}
+
+.signup--brown { background: var(--brown); }
+.signup--dark { background: var(--ground); }
+
+.signup__inner {
+  display: grid;
+  gap: 32px;
+}
+
+.signup__text {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+@media (min-width: 900px) {
+  .signup {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+  .signup__inner {
+    grid-template-columns: 1fr 1.12fr;
+    align-items: center;
+    gap: 64px;
+  }
+  .signup__text {
+    font-size: 20px;
+  }
+  .signup .signup-form {
+    font-size: 18px;
+  }
+  .signup-form__heading { font-size: 1.9em; }
+}

@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<article class="about">
+  <div class="offset">
+    <div class="offset__aside"></div>
+    <div class="offset__main">
+      {% assign heading = page.heading | default: page.title %}
+      {% include h1.html text=heading %}
+    </div>
+  </div>
+  <div class="offset about__body">
+    <div class="offset__aside">
+      {% if page.image %}
+      <img class="about__img" src="/assets/images/{{ page.image.src }}" alt="{{ page.image.alt }}" width="771" height="964">
+      {% endif %}
+    </div>
+    <div class="offset__main">
+      <div class="prose">
+        {{ content }}
+      </div>
+      {% if page.signoff %}<p class="signoff">{{ page.signoff }}</p>{% endif %}
+      {% if page.button %}<a class="button" href="{{ page.button.url }}">{{ page.button.text }}</a>{% endif %}
+    </div>
+  </div>
+</article>
+{% include signup.html text=page.signup_text tone="brown" %}

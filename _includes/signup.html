@@ -1,0 +1,9 @@
+{% comment %}
+  Signup band. Params: text (left column), tone ("brown" or "dark").
+{% endcomment %}
+<section class="signup signup--{{ include.tone | default: 'brown' }}" id="signup" aria-label="Sign up">
+  <div class="signup__inner">
+    {% if include.text %}<p class="signup__text">{{ include.text }}</p>{% endif %}
+    {% include signup-form.html %}
+  </div>
+</section>

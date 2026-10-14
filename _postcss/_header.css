@@ -1,0 +1,84 @@
+.site-header {
+  --logo-w: 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  padding: 24px var(--pad) 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Header sits over the image on the home and story pages */
+/* Home: nav sits over light sky, so it's dark */
+.layout-home .site-nav a { color: var(--ground); }
+
+.layout-home .site-header,
+.layout-story .site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: var(--on-image);
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 24px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-size: 17px;
+  line-height: 1.4;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.site-nav a.is-current {
+  border-bottom-color: currentColor;
+}
+
+.site-logo {
+  display: block;
+  width: var(--logo-w);
+  flex-shrink: 0;
+}
+
+.site-logo img {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .site-header {
+    --logo-w: 104px;
+    gap: 52px;
+    padding-top: 42px;
+  }
+  .site-nav ul { gap: 40px; }
+  .site-nav a { font-size: 18px; }
+}
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 32px;
+  border-top: 1px solid rgba(234, 226, 220, .14);
+  padding: 32px var(--pad) 40px;
+  font-size: 14px;
+}
+
+.site-footer__legal {
+  display: flex;
+  gap: 24px;
+}
+
+.site-footer a {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}

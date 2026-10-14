@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<article class="page">
+  <div class="offset">
+    <div class="offset__aside"></div>
+    <div class="offset__main">
+      {% assign heading = page.heading | default: page.title %}
+      {% include h1.html text=heading %}
+      <div class="prose page__body">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</article>

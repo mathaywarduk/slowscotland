@@ -1,0 +1,165 @@
+/*
+  Home: designed as one full screen at 1920x1080.
+  On landscape desktop it holds that layout at any size, scaled by --u
+  (1 design pixel at 1920x1080). Smaller and portrait screens stack and scroll.
+*/
+.home {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 40px;
+  padding: 140px var(--pad) 40px;
+  color: var(--on-image);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.home__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 50%;
+  z-index: -2;
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(13, 10, 6, 0) 70px, rgba(13, 10, 6, .55) 220px, rgba(13, 10, 6, .6));
+}
+
+.home__main {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.home__heading h1 {
+  font-size: clamp(32px, 8.4vw, 56px);
+  line-height: 1.1;
+  --rule-width: 1.6em;
+  --rule-gap: .4em;
+}
+
+.home__line { display: block; }
+.home__line.indent-1 { padding-left: 1em; }
+.home__line.indent-2 { padding-left: 1.4em; }
+
+.home__intro p {
+  max-width: 640px;
+}
+
+.home__intro .button {
+  margin-top: 20px;
+}
+
+.home__signup {
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .home { padding-top: 180px; padding-bottom: 56px; }
+  .home__line.indent-1 { padding-left: 2em; }
+  .home__line.indent-2 { padding-left: 3em; }
+  .home__heading h1 { --rule-width: 2.2em; }
+  .home__signup { max-width: 560px; }
+}
+
+@media (min-width: 1024px) and (min-height: 560px) and (min-aspect-ratio: 5/4) {
+  :root {
+    --u: min(calc(100vw / 1920), calc(100vh / 1080));
+  }
+
+  .home {
+    display: block;
+    height: 100vh;
+    padding: 0;
+  }
+
+  .home::before { display: none; }
+
+  .layout-home .site-header {
+    --logo-w: max(104px, calc(182 * var(--u)));
+    padding: max(32px, calc(90 * var(--u))) max(48px, calc(124 * var(--u))) 0 0;
+    gap: max(40px, calc(64 * var(--u)));
+  }
+  .layout-home .site-nav ul { gap: max(32px, calc(46 * var(--u))); }
+  .layout-home .site-nav a { font-size: max(16px, calc(19 * var(--u))); }
+
+  /*
+    Heading and intro sit together at the bottom with a 167px (design) gap,
+    so taller screens add sky above the heading rather than a gap below it.
+    On short screens the gap shrinks first, so the heading never rises above
+    its designed position.
+  */
+  .home__main {
+    position: absolute;
+    left: calc(91 * var(--u));
+    top: calc(182 * var(--u));
+    bottom: calc(187 * var(--u));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0;
+  }
+  .home__main::before {
+    content: "";
+    order: 2;
+    flex: 0 1 calc(167 * var(--u));
+    min-height: 32px;
+  }
+  .home__heading { order: 1; }
+  .home__intro { order: 3; }
+
+  .home__heading h1 {
+    font-size: max(36px, calc(64 * var(--u)));
+    line-height: 1.094;
+    --rule-width: 3.125em;
+    --rule-gap: .47em;
+  }
+
+  .home__line.indent-1 { padding-left: 1.98em; }
+  .home__line.indent-2 { padding-left: 4.67em; }
+
+  .home__intro {
+    width: max(380px, calc(720 * var(--u)));
+    font-size: max(15px, calc(22 * var(--u)));
+    line-height: 1.65;
+  }
+  .home__intro p { max-width: none; }
+
+  .home__intro .button {
+    margin-top: 1.6em;
+    font-size: max(14px, calc(18 * var(--u)));
+  }
+
+  .home__signup {
+    position: absolute;
+    right: calc(80 * var(--u));
+    bottom: calc(30 * var(--u));
+    width: max(380px, calc(683 * var(--u)));
+    max-width: none;
+    margin: 0;
+  }
+  .home__signup .signup-form { font-size: max(14px, calc(18 * var(--u))); }
+
+  /* Copyright sits in the bottom left corner of the full screen */
+  .layout-home .site-footer {
+    position: absolute;
+    left: calc(91 * var(--u));
+    bottom: calc(30 * var(--u));
+    padding: 0;
+    border: 0;
+    color: var(--on-image);
+    font-size: max(12px, calc(14 * var(--u)));
+  }
+  .home__signup .signup-form__heading { font-size: 1.9em; }
+}

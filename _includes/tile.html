@@ -1,0 +1,24 @@
+{% comment %}
+  Story tile. Param: story (a story or teaser document).
+  Public stories link to their page; teasers are locked and link to signup.
+{% endcomment %}
+{% assign story = include.story %}
+{% if story.collection == "stories" %}
+<a class="tile tile--open" href="{{ story.url }}">
+  <img class="tile__img" src="/assets/images/{{ story.image.src }}" alt="" loading="lazy">
+  <span class="tile__body">
+    <span class="tile__area">{{ story.area }}</span>
+    <span class="tile__title">{{ story.title }}</span>
+    <span class="tile__cta"><span class="u">Read the story</span></span>
+  </span>
+</a>
+{% else %}
+<a class="tile tile--locked" href="#signup">
+  <img class="tile__img" src="/assets/images/{{ story.image.src }}" alt="" loading="lazy">
+  <span class="tile__body">
+    <span class="tile__area">{{ story.area }}</span>
+    <span class="tile__title">{{ story.title }}</span>
+    <span class="tile__cta">{{ site.signup.locked_cta }} <span class="u">{{ site.signup.locked_link }}</span></span>
+  </span>
+</a>
+{% endif %}

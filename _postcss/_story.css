@@ -1,0 +1,135 @@
+.story-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: clamp(460px, 78svh, 620px);
+  padding-bottom: 48px;
+  color: var(--on-image);
+}
+
+.story-hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.story-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(13, 10, 6, .15) 0%, rgba(13, 10, 6, 0) 35%, rgba(13, 10, 6, .55) 65%, var(--ground) 100%);
+}
+
+.story-hero .h1 {
+  font-size: clamp(36px, 6.1vw, 88px);
+  line-height: 1.02;
+}
+
+@media (max-width: 899px) {
+  .story-hero .h1 { font-size: clamp(36px, 10vw, 64px); }
+}
+
+@media (min-width: 900px) {
+  .story-hero {
+    min-height: clamp(600px, 56vw, 940px);
+    padding-bottom: 72px;
+  }
+  .story-hero .h1__line {
+    margin-top: .05em;
+  }
+}
+
+.story__body {
+  padding-top: 8px;
+  padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .story__body .prose { font-size: 19px; }
+}
+
+@media (min-width: 900px) {
+  .story__body { padding-bottom: 104px; }
+}
+
+/* Before you go / In the area, on off white */
+.notes {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 56px 0 72px;
+}
+
+.notes__section + .notes__section {
+  margin-top: 56px;
+}
+
+.notes__heading {
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(30px, 2.6vw, 38px);
+  color: var(--brown);
+  margin-bottom: 24px;
+}
+
+.facts {
+  border-top: 1px solid rgba(27, 22, 17, .22);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.facts__row {
+  border-bottom: 1px solid rgba(27, 22, 17, .22);
+  padding: 14px 0 16px;
+}
+
+.facts dt {
+  color: var(--muted);
+}
+
+@media (min-width: 560px) {
+  .facts__row {
+    display: grid;
+    grid-template-columns: 156px 1fr;
+  }
+}
+
+.area-item + .area-item { margin-top: 24px; }
+
+.area-item h3 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.area-item p {
+  max-width: 640px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.area-item a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--muted);
+}
+
+@media (min-width: 900px) {
+  .notes { padding: 72px 0 96px; }
+  .notes__section + .notes__section { margin-top: 64px; }
+  .notes__heading { margin-bottom: 0; margin-top: -.1em; }
+}
+
+/* More stories */
+.more-stories__heading {
+  font-size: clamp(32px, 3vw, 42px);
+  padding: 56px var(--pad) 32px;
+}
+
+@media (min-width: 900px) {
+  .more-stories__heading { padding-top: 72px; padding-bottom: 36px; }
+}

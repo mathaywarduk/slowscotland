@@ -1,0 +1,12 @@
+{% comment %}
+  Page heading. Param: text, either one string or a list of lines.
+  "---" places the rule anywhere, *asterisks* make italics.
+  e.g. "Plockton, the --- *Tidal Cove*" or ["Stac Pollaidh", "at --- *Sunrise*"]
+{% endcomment %}
+{%- assign lines = include.text -%}
+{%- if lines.first == nil -%}{%- assign lines = include.text | split: "@@nosplit@@" -%}{%- endif -%}
+<h1 class="h1">
+  {%- for line in lines -%}
+    <span class="h1__line">{% include heading-line.html text=line %}{{ " " }}</span>
+  {%- endfor -%}
+</h1>

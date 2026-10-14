@@ -1,0 +1,129 @@
+/*
+  Offset content column (story and about pages): a flexible spacer then the
+  content column. Section headings and the about photo sit in the spacer.
+  Below 900px it stacks into a single column.
+*/
+.offset {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--pad);
+}
+
+.offset__aside:empty { display: none; }
+
+@media (min-width: 900px) {
+  .offset {
+    flex-direction: row;
+  }
+  .offset__aside {
+    flex: 1 1 280px;
+    min-width: 0;
+  }
+  .offset__aside:empty { display: block; }
+  .offset__main {
+    flex: 0 1 760px;
+    min-width: 0;
+  }
+}
+
+/* About */
+.about {
+  padding-top: 64px;
+  padding-bottom: 88px;
+}
+
+.about .h1 {
+  font-size: clamp(56px, 7vw, 96px);
+}
+
+.about__body {
+  margin-top: 40px;
+}
+
+.about__body .offset__aside {
+  margin-bottom: 40px;
+}
+
+.about__img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+}
+
+.about .prose {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.about .button {
+  margin-top: 40px;
+}
+
+@media (min-width: 900px) {
+  .about {
+    padding-top: 88px;
+    padding-bottom: 112px;
+  }
+  .about__body {
+    margin-top: 72px;
+  }
+  .about__body .offset__aside {
+    margin-bottom: 0;
+    padding-right: 48px;
+  }
+  .about .prose {
+    font-size: 19px;
+  }
+}
+
+/* Simple text page (privacy) */
+.page {
+  padding-top: 64px;
+  padding-bottom: 96px;
+}
+
+.page .h1 {
+  font-size: clamp(48px, 6vw, 80px);
+}
+
+.page__body {
+  margin-top: 40px;
+}
+
+@media (min-width: 900px) {
+  .page {
+    padding-top: 88px;
+    padding-bottom: 128px;
+  }
+  .page__body {
+    margin-top: 56px;
+    font-size: 19px;
+  }
+}
+
+/* Stories index */
+.stories-intro {
+  padding: 56px var(--pad) 56px;
+}
+
+.stories-intro .h1 {
+  font-size: clamp(52px, 5.4vw, 76px);
+}
+
+.stories-intro__text {
+  margin-top: 24px;
+  max-width: 720px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .stories-intro {
+    padding-top: 40px;
+    padding-bottom: 64px;
+  }
+  .stories-intro__text {
+    margin-top: 28px;
+    font-size: 19px;
+  }
+}

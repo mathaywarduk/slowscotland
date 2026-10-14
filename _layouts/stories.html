@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<section class="stories-intro">
+  {% assign heading = page.heading | default: page.title %}
+      {% include h1.html text=heading %}
+  <div class="stories-intro__text">
+    {{ content }}
+  </div>
+</section>
+
+{% assign stories = site.stories | sort: "order" %}
+<div class="tiles tiles--open">
+  {% for story in stories %}
+    {% include tile.html story=story %}
+  {% endfor %}
+</div>
+
+{% assign teasers = site.teasers | sort: "order" %}
+<div class="tiles tiles--locked">
+  {% for story in teasers %}
+    {% include tile.html story=story %}
+  {% endfor %}
+</div>
+
+{% include signup.html text=page.signup_text tone="dark" %}

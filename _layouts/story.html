@@ -1,0 +1,78 @@
+---
+layout: default
+---
+<article class="story">
+  <header class="story-hero">
+    <img class="story-hero__img" src="/assets/images/{{ page.image.src }}" alt="{{ page.image.alt }}" fetchpriority="high">
+    <div class="offset">
+      <div class="offset__aside"></div>
+      <div class="offset__main">
+        {% include h1.html text=page.heading %}
+      </div>
+    </div>
+  </header>
+
+  <div class="offset story__body">
+    <div class="offset__aside"></div>
+    <div class="offset__main">
+      <div class="prose">
+        {{ content }}
+      </div>
+      {% if page.signoff %}<p class="signoff">{{ page.signoff }}</p>{% endif %}
+    </div>
+  </div>
+
+  {% assign has_before = page.before_you_go | size %}
+  {% assign has_area = page.in_the_area | size %}
+  {% if has_before > 0 or has_area > 0 %}
+  <section class="notes">
+    {% if has_before > 0 %}
+    <div class="offset notes__section">
+      <h2 class="offset__aside notes__heading">Before you go</h2>
+      <div class="offset__main">
+        <dl class="facts">
+          {% for row in page.before_you_go %}
+          <div class="facts__row">
+            <dt>{{ row.label }}</dt>
+            <dd>{{ row.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</dd>
+          </div>
+          {% endfor %}
+        </dl>
+      </div>
+    </div>
+    {% endif %}
+    {% if has_area > 0 %}
+    <div class="offset notes__section">
+      <h2 class="offset__aside notes__heading">In the area</h2>
+      <div class="offset__main">
+        {% for item in page.in_the_area %}
+        <div class="area-item">
+          <h3>{{ item.title }}</h3>
+          {{ item.text | markdownify }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </section>
+  {% endif %}
+</article>
+
+{% include signup.html text=page.signup_text tone="brown" %}
+
+{% assign others = site.stories | where_exp: "s", "s.url != page.url" | sort: "order" %}
+{% assign teasers = site.teasers | sort: "order" %}
+{% assign need = 3 | minus: others.size %}
+<section class="more-stories" aria-labelledby="more-stories">
+  <h2 class="more-stories__heading" id="more-stories">More stories</h2>
+  <div class="tiles tiles--more">
+    {% for story in others limit: 3 %}
+      {% include tile.html story=story %}
+    {% endfor %}
+    {% if need > 0 %}
+      {% for story in teasers limit: need %}
+        {% include tile.html story=story %}
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>

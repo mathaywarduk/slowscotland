@@ -1,0 +1,11 @@
+{% comment %} The "Start the journey" form. Wire up via signup.mailchimp_action in _config.yml. {% endcomment %}
+<div class="signup-form">
+  <h2 class="signup-form__heading">{{ site.signup.heading }}</h2>
+  <form action="{{ site.signup.mailchimp_action | default: '#' }}" method="post" target="_blank" novalidate>
+    <div class="signup-form__row">
+      <input type="email" name="EMAIL" id="signup-email-{{ include.id | default: 'main' }}" placeholder="{{ site.signup.placeholder }}" aria-label="Email address" autocomplete="email" required>
+      <button type="submit">{{ site.signup.button }}</button>
+    </div>
+  </form>
+  <p class="signup-form__note">{{ site.signup.note }} <a href="/privacy/">{{ site.signup.privacy_link }}</a></p>
+</div>
