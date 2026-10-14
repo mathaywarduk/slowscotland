@@ -35,7 +35,8 @@ signup:
   locked_cta: "Arrives by email."
   locked_link: "Sign up free"
 
-footer: "Slow Scotland is an email series from Mat Hayward"
+# Markdown, so links work
+footer: "Slow Scotland is an email series from [Mat Hayward](https://mathayward.com)"
 copyright: "Mat Hayward"
 
 nav:

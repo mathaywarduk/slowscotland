@@ -1,5 +1,5 @@
 <footer class="site-footer">
-  {% unless include.compact %}<p>{{ site.footer }}</p>{% endunless %}
+  {% unless include.compact %}<p>{{ site.footer | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>{% endunless %}
   <p class="site-footer__legal">
     <span>&copy; {{ site.time | date: "%Y" }} {{ site.copyright }}</span>
     <a href="/privacy/">Privacy policy</a>
