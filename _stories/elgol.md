@@ -4,9 +4,12 @@ title: "Elgol, the Kayaker at Dusk"
 heading: "Elgol, the Kayaker --- *at Dusk*"
 area: "Isle of Skye"
 order: 2
+# lift raises the photo so the kayaker isn't hidden behind the fade and heading.
 image:
-  src: cuillin.jpg
-  alt: "The Cuillin ridge in silhouette against a dusk sky"
+  src: elgol.jpg
+  position: "88% 75%"
+  lift: "22%"
+  alt: "A kayaker in a yellow boat on still water below the blue ridges of the Cuillin at dusk"
 description: "When someone called Merlin tells you to try Elgol for sunset, you go for it."
 signup_text: "This is one of two stories shared here. The other twelve arrive by email, one a week, with a few practical notes if you want to visit yourself."
 

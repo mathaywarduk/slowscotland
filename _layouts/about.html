@@ -19,7 +19,7 @@ layout: default
       <div class="prose">
         {{ content }}
       </div>
-      {% if page.signoff %}<p class="signoff">{{ page.signoff }}</p>{% endif %}
+      {% include signoff.html name=page.signoff %}
       {% if page.button %}<a class="button" href="{{ page.button.url }}">{{ page.button.text }}</a>{% endif %}
     </div>
   </div>

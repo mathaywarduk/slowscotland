@@ -5,7 +5,7 @@
 {% assign story = include.story %}
 {% if story.collection == "stories" %}
 <a class="tile tile--open" href="{{ story.url }}">
-  <img class="tile__img" src="/assets/images/{{ story.image.src }}" alt="" loading="lazy">
+  <img class="tile__img" src="/assets/images/stories/tiles/{{ story.image.src }}" alt="" loading="lazy"{% if story.image.position %} style="object-position: {{ story.image.position }}"{% endif %}>
   <span class="tile__body">
     <span class="tile__area">{{ story.area }}</span>
     <span class="tile__title">{{ story.title }}</span>
@@ -14,7 +14,7 @@
 </a>
 {% else %}
 <a class="tile tile--locked" href="#signup">
-  <img class="tile__img" src="/assets/images/{{ story.image.src }}" alt="" loading="lazy">
+  <img class="tile__img" src="/assets/images/stories/tiles/{{ story.image.src }}" alt="" loading="lazy"{% if story.image.position %} style="object-position: {{ story.image.position }}"{% endif %}>
   <span class="tile__body">
     <span class="tile__area">{{ story.area }}</span>
     <span class="tile__title">{{ story.title }}</span>

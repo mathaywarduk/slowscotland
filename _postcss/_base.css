@@ -112,12 +112,12 @@ a { color: inherit; }
 }
 
 .signoff {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 300;
-  font-size: 1.6em;
-  line-height: 1.2;
-  margin-top: 1.4em;
+  margin-top: 2em;
+}
+
+.signoff img {
+  width: 110px;
+  height: auto;
 }
 
 .prose p {

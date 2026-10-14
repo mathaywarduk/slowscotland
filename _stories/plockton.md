@@ -7,8 +7,9 @@ heading:
   - "--- *Tidal Cove*"
 area: "Loch Carron"
 order: 1
+# Photo in assets/images/stories. position (optional) sets the focal point for crops, e.g. "50% 60%".
 image:
-  src: fire.jpg
+  src: plockton.jpg
   alt: "Friends around a fire on a rocky spit at dusk, with Loch Carron and the hills beyond"
 description: "An evening by the fire in a tidal cove just outside Plockton."
 signup_text: "This is one of two stories shared here. The other twelve arrive by email, one a week, with a few practical notes if you want to visit yourself."

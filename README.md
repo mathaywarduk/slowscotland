@@ -50,7 +50,9 @@ Teasers in `_teasers` only need `title`, `area`, `order` and `image`. They show 
 
 ### Images
 
-Images go in `assets/images` and are referenced by filename in front matter. Locked tiles blur their image with CSS.
+Story photos go in `assets/images/stories` and are referenced by filename in front matter (`image.src`). Add `image.position` (e.g. `"50% 70%"`) to choose which part of the photo crops keep. If a story's subject sits low in the photo and gets hidden by the fade and heading, add `image.lift` (e.g. `"22%"`) to raise the photo so the heading sits below it (see `_stories/elgol.md`).
+
+After adding or replacing a story photo, run `./scripts/tiles.sh` to make the smaller copies the tiles and phones use (needs ImageMagick). Locked tiles blur their image with CSS.
 
 ### Signup
 

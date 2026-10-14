@@ -18,7 +18,7 @@
     <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
     <link rel="stylesheet" href="/assets/css/styles.css?v={{ site.time | date: "%s" }}">
 
-    {% assign share_image = page.hero.image | default: page.image.src | default: "home-hero.jpg" %}
+    {% if page.collection == "stories" %}{% assign share_image = page.image.src | prepend: "stories/" %}{% else %}{% assign share_image = page.hero.image | default: page.image.src | default: "home-hero.jpg" %}{% endif %}
     <meta property="og:locale" content="en_GB">
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:type" content="website">
