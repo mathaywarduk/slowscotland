@@ -25,7 +25,7 @@ before_you_go:
 # "In the area" items. Text is Markdown, so links work.
 in_the_area:
   - title: "Stay"
-    text: "We stayed at [Nead an Eoin](#), just outside the village, with its own cove at the bottom of a path through the woods."
+    text: 'We stayed at [Nead an Eoin](https://www.unique-cottages.co.uk/cottages/west-coast/lochalsh-wester-ross/gb7-nead-an-eoin){:target="_blank" rel="noopener"}, just outside the village, with its own cove at the bottom of a path through the woods.'
   - title: "Food"
     text: "The Harbour Fish Bar in the village does decent fish and chips."
   - title: "Beach"

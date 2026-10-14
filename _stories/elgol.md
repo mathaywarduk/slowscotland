@@ -14,10 +14,18 @@ description: "When someone called Merlin tells you to try Elgol for sunset, you 
 signup_text: "This is one of two stories shared here. The other twelve arrive by email, one a week, with a few practical notes if you want to visit yourself."
 
 # "Before you go" rows. Only use rows that can be honestly filled.
-before_you_go: []
+before_you_go:
+  - label: "When we went"
+    text: "April, at sunset."
+  - label: "Tide"
+    text: "Check the tide times for the day, you don't want to get stuck on the wrong side of the cliff."
 
 # "In the area" items. Text is Markdown, so links work.
-in_the_area: []
+in_the_area:
+  - title: "Camp"
+    text: "If you like a wild camp, there are a few spots on the road to Elgol."
+  - title: "Photo opp"
+    text: "The road to Elgol takes you through Torrin, with views of Blà Bheinn over Loch Slapin."
 ---
 
 When someone called Merlin tells you to try Elgol for sunset, you go for it.

@@ -62,6 +62,17 @@ The form posts to `signup.mailchimp_action` in `_config.yml`. Paste the Mailchim
 
 CSS is in `_postcss`, one file per area. Each partial must be imported directly in `assets/css/styles.css`. jekyll-postcss only notices changes to files imported from there.
 
+## Story emails
+
+The twelve weekly emails are generated from the stories in `_teasers/` (front matter for the heading, "Before you go" and "In the area"; the story text below). The text is used for the emails only and isn't published on the site.
+
+```
+./scripts/email-heroes.sh                  # after adding or replacing a story photo
+bundle exec ruby scripts/build-emails.rb   # after editing any story
+```
+
+This writes `email/issues/01-stac-pollaidh.html` to `12-suilven.html`. In Mailchimp, for each email in the journey choose "Code your own" > "Paste in code" and paste the file. Set the subject line and preview text in Mailchimp. The hero photos load from `assets/email/heroes/`, so push to the site before sending.
+
 ## Mailchimp templates
 
 Two templates in `email/`, to upload in Mailchimp under Templates, Create template, Code your own, Import HTML:
@@ -71,11 +82,11 @@ Two templates in `email/`, to upload in Mailchimp under Templates, Create templa
 
 Notes:
 
-- The hero photo is a background image so the heading can sit over it, which means it can't be swapped in the editor. Upload the photo to Content Studio, then in the code view replace the hero image URL (`stac-pollaidh.jpg` by default; three times, all in the hero block). It's cropped around 70% down the photo, so subjects in the lower half stay in frame on wide screens. Classic Outlook on Windows shows the photo with the heading on a solid dark band below it.
+- The story template's hero is a normal image showing the whole photo, with the heading below it. Click it in the editor to replace it, using the faded versions in `assets/email/heroes/`.
 - The heading rule is a small image (`rule-light.png`). Cut and paste it to move it.
 - The logo, rule and fade images, and the fonts, load from `https://slowscotland.uk/assets/`, so the site needs to be live before sending. Fonts show in Apple Mail and iOS; other clients fall back to Georgia and Helvetica.
 - Leave Mailchimp's automatic CSS inlining switched on (the default).
-- Each band (header, hero, story, notes, collage, footer) runs the full width of the email with its content in a centred 600px column.
+- Emails are a single 600px column on a light grey (#F4F4F4) page; each band (header, hero, story, notes, collage, footer) has its own background colour.
 
 
 ## Hosting
