@@ -27,11 +27,14 @@ defaults:
 # e.g. https://slowscotland.us21.list-manage.com/subscribe/post?u=XXXX&id=YYYY
 signup:
   # From the Mailchimp embedded form code: the form's action URL and the hidden "b_..." field name.
-  mailchimp_action: "https://gmail.us11.list-manage.com/subscribe/post?u=7175e63d67cc05df1a4aff310&id=e41559d450&f_id=00389ce0f0"
+  mailchimp_action: "https://slowscotland.us11.list-manage.com/subscribe/post?u=7175e63d67cc05df1a4aff310&id=e41559d450&f_id=00389ce0f0"
   mailchimp_honeypot: "b_7175e63d67cc05df1a4aff310_e41559d450"
   # Shown under the form after a successful signup
   success: "Thanks. Check your inbox to confirm your email address."
   error: "Something went wrong. Please try again."
+  # Shown when Mailchimp asks for a human check; the link opens Mailchimp's signup page
+  captcha: "Almost there. Mailchimp needs to check you're not a robot."
+  captcha_link: "Finish signing up"
   heading: "Start the journey"
   placeholder: "Enter your email address"
   button: "Go"

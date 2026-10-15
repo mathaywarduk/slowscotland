@@ -122,3 +122,8 @@
   opacity: .6;
   cursor: progress;
 }
+
+.signup-form__status a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

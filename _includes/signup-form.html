@@ -5,7 +5,7 @@
 {% endcomment %}
 <div class="signup-form">
   <h2 class="signup-form__heading">{{ site.signup.heading }}</h2>
-  <form action="{{ site.signup.mailchimp_action }}" method="post" target="_blank" data-signup data-success="{{ site.signup.success | escape }}" data-error="{{ site.signup.error | escape }}">
+  <form action="{{ site.signup.mailchimp_action }}" method="post" target="_blank" data-signup data-success="{{ site.signup.success | escape }}" data-error="{{ site.signup.error | escape }}" data-captcha="{{ site.signup.captcha | escape }}" data-captcha-link="{{ site.signup.captcha_link | escape }}">
     <div class="signup-form__row">
       <input type="email" name="EMAIL" id="signup-email-{{ include.id | default: 'main' }}" placeholder="{{ site.signup.placeholder }}" aria-label="Email address" autocomplete="email" required>
       <button type="submit">{{ site.signup.button }}</button>

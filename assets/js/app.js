@@ -23,6 +23,21 @@ document.querySelectorAll('form[data-signup]').forEach(function (form) {
 
   var hideTimer;
 
+  // Message with a link to Mailchimp's own signup page, email filled in
+  function showWithLink(message) {
+    clearTimeout(hideTimer);
+    var url = form.action.replace('/post?', '?') + '&EMAIL=' + encodeURIComponent(input.value);
+    status.textContent = message + ' ';
+    var link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = form.dataset.captchaLink;
+    status.appendChild(link);
+    status.hidden = false;
+    status.classList.remove('is-hiding');
+  }
+
   function show(message, isError) {
     clearTimeout(hideTimer);
     status.textContent = message;
@@ -54,8 +69,17 @@ document.querySelectorAll('form[data-signup]').forEach(function (form) {
     var url = form.action.replace('/post?', '/post-json?') + '&' + params.toString();
     var script = document.createElement('script');
 
+    // If Mailchimp's reply never arrives or can't be read, don't leave the
+    // visitor with nothing: offer Mailchimp's own signup page instead
+    var timeout = setTimeout(function () {
+      cleanUp();
+      showWithLink(form.dataset.error);
+      status.classList.add('is-error');
+    }, 10000);
+
     function cleanUp() {
-      delete window[callback];
+      clearTimeout(timeout);
+      window[callback] = function () {};
       script.remove();
       button.disabled = false;
     }
@@ -65,6 +89,10 @@ document.querySelectorAll('form[data-signup]').forEach(function (form) {
       if (data && data.result === 'success') {
         form.reset();
         show(form.dataset.success);
+      } else if (data && /captcha/i.test(data.msg || '')) {
+        // Mailchimp wants a human check it can't run in the background
+        showWithLink(form.dataset.captcha);
+        status.classList.remove('is-error');
       } else {
         // Mailchimp messages can contain HTML and a "0 - " prefix
         var tmp = document.createElement('div');
@@ -76,7 +104,8 @@ document.querySelectorAll('form[data-signup]').forEach(function (form) {
 
     script.onerror = function () {
       cleanUp();
-      show(form.dataset.error, true);
+      showWithLink(form.dataset.error);
+      status.classList.add('is-error');
     };
 
     button.disabled = true;
