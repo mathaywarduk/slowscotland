@@ -20,7 +20,7 @@ layout: default
         {{ content }}
       </div>
       {% include signoff.html name=page.signoff %}
-      {% if page.button %}<a class="button" href="{{ page.button.url }}">{{ page.button.text }}</a>{% endif %}
+      {% if page.button %}{% include button.html url=page.button.url text=page.button.text %}{% endif %}
     </div>
   </div>
 </article>

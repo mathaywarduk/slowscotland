@@ -37,6 +37,7 @@
   background: var(--button);
   color: var(--on-image);
   font: inherit;
+  font-weight: 500;
   cursor: pointer;
   transition: background-color .2s ease;
 }

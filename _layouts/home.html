@@ -20,7 +20,7 @@ layout: default
     </div>
     <div class="home__intro">
       {{ content }}
-      {% if page.button %}<a class="button" href="{{ page.button.url }}">{{ page.button.text }}</a>{% endif %}
+      {% if page.button %}{% include button.html url=page.button.url text=page.button.text %}{% endif %}
     </div>
   </div>
   <div class="home__signup" id="signup">
