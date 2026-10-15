@@ -1,0 +1,29 @@
+---
+layout: none
+permalink: /llms.txt
+sitemap: false
+---
+# {{ site.title }}
+
+> {{ site.description }}
+
+Slow Scotland is free. Sign up on any page with an email address: subscribers get one email a week for twelve weeks, each with a photograph, a short story and practical notes for visiting (getting there, how long, what to bring, and food, places to stay and photo spots nearby). Two of the stories are published on the website; the others arrive only by email.
+
+## Stories on the website
+
+{% assign stories = site.stories | sort: "order" -%}
+{% for s in stories -%}
+- [{{ s.title }}]({{ site.url }}{{ s.url }}) ({{ s.area }}): {{ s.description }}
+{% endfor %}
+## Stories that arrive by email
+
+{% assign teasers = site.teasers | sort: "order" -%}
+{% for t in teasers -%}
+- {{ t.title }} ({{ t.area }})
+{% endfor %}
+## About
+
+- [About Slow Scotland]({{ site.url }}/about/): who writes it and why
+- [All stories]({{ site.url }}/stories/)
+- [Privacy policy]({{ site.url }}/privacy/): how email addresses are used (Mailchimp; Plausible for anonymous visit counts)
+- [Mat Hayward's photography]({{ site.author.url }})

@@ -73,7 +73,8 @@ exclude:
   - email
   - scripts
 
-# robots.txt must keep one rule per line
+# Plain-text files must keep their line breaks
 jekyll-minifier:
   exclude:
     - "robots.txt"
+    - "llms.txt"
