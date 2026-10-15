@@ -27,6 +27,11 @@
   z-index: -2;
 }
 
+/* The portrait image (see _layouts/home.html) is already cropped */
+@media (orientation: portrait) {
+  .home__bg { object-position: 50% 50%; }
+}
+
 .home::before {
   content: "";
   position: absolute;

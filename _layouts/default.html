@@ -4,31 +4,54 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if page.url == "/" %}
-    <title>{{ site.title }}</title>
+    {% assign page_title = site.title | append: " - " | append: site.tagline %}
     {% else %}
-    <title>{{ page.title }} - {{ site.title }}</title>
+    {% assign page_title = page.title | append: " - " | append: site.title %}
     {% endif %}
+    <title>{{ page_title }}</title>
     {% assign description = page.description | default: site.description %}
-    <meta name="description" content="{{ description | strip_html | strip }}">
+    {% if page.collection == "stories" %}{% assign description = description | append: " " | append: site.story_description_suffix %}{% endif %}
+    {% assign description = description | strip_html | strip %}
+    <meta name="description" content="{{ description }}">
     {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
+    <meta name="theme-color" content="#0D0A06">
 
     <link rel="preload" href="/assets/fonts/Sentient-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/Sentient-LightItalic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/DMSans-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    {% if page.layout == "home" %}
+    <link rel="preload" as="image" href="/assets/images/home-hero-portrait.jpg" media="(orientation: portrait)" fetchpriority="high">
+    <link rel="preload" as="image" imagesrcset="/assets/images/home-hero-800.jpg 800w, /assets/images/home-hero-1200.jpg 1200w, /assets/images/home-hero.jpg 2000w" imagesizes="100vw" media="(orientation: landscape)" fetchpriority="high">
+    {% endif %}
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
     <link rel="stylesheet" href="/assets/css/styles.css?v={{ site.time | date: "%s" }}">
 
-    {% if page.collection == "stories" %}{% assign share_image = page.image.src | prepend: "stories/" %}{% else %}{% assign share_image = page.hero.image | default: page.image.src | default: "home-hero.jpg" %}{% endif %}
+    {% comment %} Social sharing: 1200x630 images made by scripts/social-images.sh {% endcomment %}
+    {% if page.social_image %}{% assign share_image = page.social_image %}{% elsif page.collection == "stories" %}{% assign share_image = page.image.src %}{% else %}{% assign share_image = "home.jpg" %}{% endif %}
+    {% assign share_url = site.url | append: "/assets/images/social/" | append: share_image %}
+    {% if page.collection == "stories" %}{% assign share_alt = page.image.alt %}{% else %}{% assign share_alt = "Slow Scotland logo over a photograph of the Scottish Highlands" %}{% endif %}
     <meta property="og:locale" content="en_GB">
     <meta property="og:site_name" content="{{ site.title }}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{% if page.collection == "stories" %}article{% else %}website{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-    <meta property="og:title" content="{{ page.title }}">
-    <meta property="og:description" content="{{ description | strip_html | strip }}">
-    <meta property="og:image" content="{{ site.url }}/assets/images/{{ share_image }}">
+    <meta property="og:title" content="{{ page_title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ share_url }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ share_alt | escape }}">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page_title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ share_url }}">
+    <meta name="twitter:image:alt" content="{{ share_alt | escape }}">
+    {% if page.collection == "stories" %}<meta property="article:author" content="{{ site.author.url }}">{% endif %}
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+    {% include schema.html share_url=share_url description=description %}
 
     {% if jekyll.environment == "production" %}
     <!-- Privacy-friendly analytics by Plausible (production builds only) -->

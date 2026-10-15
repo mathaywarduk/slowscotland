@@ -1,7 +1,8 @@
 ---
 layout: home
 title: "Slow Scotland"
-description: "Scotland's quieter experiences, scenes and detours, told through photography and short stories."
+description: "A free 12-week email journey through Scotland's quieter places. Each week, a photograph and a short story from photographer Mat Hayward, with practical notes for visiting."
+social_image: home.jpg
 hero:
   image: home-hero.jpg
   alt: "Mountain silhouettes at dusk above a loch"

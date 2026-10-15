@@ -3,7 +3,8 @@ layout: about
 title: "About"
 heading: "--- *About*"
 permalink: /about/
-description: "Slow Scotland is a 12-week email series of photographs and short stories from Scotland's quieter places."
+description: "Slow Scotland is a free 12-week email journey from photographer Mat Hayward, sharing quieter, often overlooked places across the Highlands and islands."
+social_image: about.jpg
 image:
   src: about-mat.jpg
   alt: "Mat standing on rocks above Loch Coruisk, looking down into the valley"

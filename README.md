@@ -52,6 +52,8 @@ Teasers in `_teasers` only need `title`, `area`, `order` and `image`. They show 
 
 Story photos go in `assets/images/stories` and are referenced by filename in front matter (`image.src`). Add `image.position` (e.g. `"50% 70%"`) to choose which part of the photo crops keep. If a story's subject sits low in the photo and gets hidden by the fade and heading, add `image.lift` (e.g. `"22%"`) to raise the photo so the heading sits below it (see `_stories/elgol.md`).
 
+Social sharing images (1200x630, with the logo) are in `assets/images/social`, made by `./scripts/social-images.sh`; re-run it after changing a story, home or about photo. A page can choose its image with `social_image` in front matter.
+
 After adding or replacing a story photo, run `./scripts/tiles.sh` to make the smaller copies the tiles and phones use (needs ImageMagick). Locked tiles blur their image with CSS.
 
 ### Signup

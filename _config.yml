@@ -1,6 +1,13 @@
 url: "https://slowscotland.uk"
 title: "Slow Scotland"
-description: "Scotland's quieter experiences, scenes and detours, told through photography and short stories."
+description: "A free 12-week email journey through Scotland's quieter places. Each week, a photograph and a short story from photographer Mat Hayward, with practical notes for visiting."
+# Used in page titles and social previews
+tagline: "A free email journey through Scotland's quieter places"
+# Added to each story's description in search results and social previews
+story_description_suffix: "A story from Slow Scotland, a free 12-week email journey through Scotland's quieter places."
+author:
+  name: "Mat Hayward"
+  url: "https://mathayward.com"
 
 plugins:
   - jekyll-postcss
@@ -65,3 +72,8 @@ exclude:
   - node_modules
   - email
   - scripts
+
+# robots.txt must keep one rule per line
+jekyll-minifier:
+  exclude:
+    - "robots.txt"

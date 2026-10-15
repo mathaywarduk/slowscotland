@@ -2,7 +2,12 @@
 layout: default
 ---
 <div class="home">
-  <img class="home__bg" src="/assets/images/{{ page.hero.image }}" alt="{{ page.hero.alt }}" fetchpriority="high">
+  {% comment %} Portrait screens get a pre-cropped version; others a size to suit the screen {% endcomment %}
+  <picture>
+    <source media="(orientation: portrait)" srcset="/assets/images/home-hero-portrait.jpg">
+    <source srcset="/assets/images/home-hero-800.jpg 800w, /assets/images/home-hero-1200.jpg 1200w, /assets/images/home-hero.jpg 2000w" sizes="100vw">
+    <img class="home__bg" src="/assets/images/{{ page.hero.image }}" alt="{{ page.hero.alt }}" fetchpriority="high">
+  </picture>
   <div class="home__main">
     <div class="home__heading">
       <h1>
