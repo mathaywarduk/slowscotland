@@ -10,3 +10,9 @@
   JEKYLL_ENV = "production"
   RUBY_VERSION = "3.3.5"
   NODE_VERSION = "22"
+
+# Fonts never change, so browsers can keep them for a year
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

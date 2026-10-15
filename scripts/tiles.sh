@@ -5,6 +5,6 @@
 cd "$(dirname "$0")/../assets/images/stories" || exit 1
 mkdir -p tiles
 for f in *.jpg; do
-  magick "$f" -resize '800x800>' -strip -quality 80 "tiles/$f"
+  magick "$f" -resize '800x800>' -strip -interlace Plane -quality 80 "tiles/$f"
   echo "tiles/$f"
 done
