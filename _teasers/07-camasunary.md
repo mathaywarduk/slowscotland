@@ -6,8 +6,8 @@ image:
   src: camasunary.jpg
 # Email heading. --- places the rule, *asterisks* make italics, one item per line.
 heading:
-  - "Evening light at"
-  - "--- *Camasunary Bay*"
+  - "--- *Evening light*"
+  - "at Camasunary Bay"
 before_you_go:
   - label: "Getting there"
     text: "The [car park](https://maps.app.goo.gl/CEuA95cTQpNBCN1WA) is just south of Kilmarie. The path is directly across the road, you can’t miss it."

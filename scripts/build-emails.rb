@@ -41,10 +41,14 @@ end
 def heading_html(lines)
   Array(lines).map do |line|
     html = inline(line.to_s.gsub("---", "XXRULEXX"))
-    # Keep the rule and the italic words after it together, so the rule never
-    # ends a line on its own and place names don't split
-    html = html.gsub(%r{XXRULEXX\s*(<em>.*?</em>|\S+)}) do
-      %(<span style="white-space:nowrap;">#{RULE} #{Regexp.last_match(1)}</span>)
+    # Keep the rule with the first word after it, so the rule never ends a line
+    # on its own. The rest of the heading can wrap: keeping more together can
+    # make the heading wider than the 600px email and break the layout.
+    html = html.gsub(%r{XXRULEXX\s*(<em>)?([^\s<]+)(</em>)?}) do
+      open_em, word, close_em = Regexp.last_match.captures
+      glued = open_em ? "<em>#{word}</em>" : word
+      reopen = open_em && !close_em ? "<em>" : ""
+      %(<span style="white-space:nowrap;">#{RULE} #{glued}</span>#{reopen})
     end
     html.gsub("<em>", %(<em style="font-style:italic; font-weight:300;">))
   end.join("<br>")
