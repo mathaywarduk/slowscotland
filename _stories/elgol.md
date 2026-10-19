@@ -1,8 +1,13 @@
 ---
 title: "Elgol, the Kayaker at Dusk"
+# Published date, and (optional) updated: when the story last changed. Shown to search engines.
+date: 2026-10-14
 # Page heading. --- places the rule, *asterisks* make italics.
 heading: "Elgol, the Kayaker --- *at Dusk*"
 area: "Isle of Skye"
+# The place itself, and roughly where it is, for search engines
+place: "Elgol"
+geo: { lat: 57.1453, lng: -6.1060 }
 order: 2
 # lift raises the photo so the kayaker isn't hidden behind the fade and heading.
 image:
@@ -10,7 +15,7 @@ image:
   position: "88% 75%"
   lift: "22%"
   alt: "A kayaker in a yellow boat on still water below the blue ridges of the Cuillin at dusk"
-description: "When someone called Merlin tells you to try Elgol for sunset, you go for it."
+description: "Sunset at Elgol on the Isle of Skye, following the rocks round the cliff to watch a kayaker cross the water below the Cuillin."
 signup_text: "This is one of two stories shared here. The other twelve arrive by email, one a week, with a few practical notes if you want to visit yourself."
 
 # "Before you go" rows. Only use rows that can be honestly filled.

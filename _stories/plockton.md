@@ -1,17 +1,22 @@
 ---
 title: "Plockton, the Tidal Cove"
+# Published date, and (optional) updated: when the story last changed. Shown to search engines.
+date: 2026-10-14
 # Page heading. --- places the rule, *asterisks* make italics.
 # Use a list to choose the line breaks, e.g. ["Stac Pollaidh", "at --- *Sunrise*"]
 heading:
   - "Plockton, the"
   - "--- *Tidal Cove*"
 area: "Loch Carron"
+# The place itself, and roughly where it is, for search engines
+place: "Plockton"
+geo: { lat: 57.3366, lng: -5.6545 }
 order: 1
 # Photo in assets/images/stories. position (optional) sets the focal point for crops, e.g. "50% 60%".
 image:
   src: plockton.jpg
   alt: "Friends around a fire on a rocky spit at dusk, with Loch Carron and the hills beyond"
-description: "An evening by the fire in a tidal cove just outside Plockton."
+description: "An evening by the fire in a tidal cove just outside Plockton, in the Highlands, watching the light change over the water."
 signup_text: "This is one of two stories shared here. The other twelve arrive by email, one a week, with a few practical notes if you want to visit yourself."
 
 # "Before you go" rows. Only use rows that can be honestly filled.

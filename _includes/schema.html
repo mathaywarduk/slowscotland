@@ -3,8 +3,9 @@
   Params: share_url (the page's social image), description.
 {% endcomment %}
 {%- assign home_url = site.url | append: "/" -%}
+{%- comment -%} Same @id as the Person on mathayward.com, so search engines treat both as one author {%- endcomment -%}
 {%- capture person -%}
-  {"@type": "Person", "@id": "{{ site.url }}/#mat", "name": {{ site.author.name | jsonify }}, "url": {{ site.author.url | jsonify }}}
+  {"@type": "Person", "@id": "{{ site.author.url }}/#mat", "name": {{ site.author.name | jsonify }}, "url": {{ site.author.url | jsonify }}{% if site.author.same_as.size > 0 %}, "sameAs": {{ site.author.same_as | jsonify }}{% endif %}}
 {%- endcapture -%}
 <script type="application/ld+json">
 {
@@ -17,7 +18,7 @@
       "name": {{ site.title | jsonify }},
       "description": {{ site.description | jsonify }},
       "inLanguage": "en-GB",
-      "publisher": {"@id": "{{ site.url }}/#mat"},
+      "publisher": {"@id": "{{ site.author.url }}/#mat"},
       "image": "{{ site.url }}/assets/images/social/home.jpg"
     },
     {{ person }},
@@ -28,12 +29,23 @@
       "headline": {{ page.title | jsonify }},
       "description": {{ include.description | jsonify }},
       "image": ["{{ site.url }}/assets/images/stories/{{ page.image.src }}", {{ include.share_url | jsonify }}],
-      "author": {"@id": "{{ site.url }}/#mat"},
-      "publisher": {"@id": "{{ site.url }}/#mat"},
+      "author": {"@id": "{{ site.author.url }}/#mat"},
+      "publisher": {"@id": "{{ site.author.url }}/#mat"},
+      {%- if page.date %}
+      "datePublished": "{{ page.date | date: "%Y-%m-%d" }}",
+      "dateModified": "{{ page.updated | default: page.date | date: "%Y-%m-%d" }}",
+      {%- endif %}
       "inLanguage": "en-GB",
       "isPartOf": {"@id": "{{ site.url }}/#website"},
       "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
-      "contentLocation": {"@type": "Place", "name": {{ page.area | append: ", Scotland" | jsonify }}}
+      "contentLocation": {
+        "@type": "Place",
+        "name": {{ page.place | default: page.area | jsonify }},
+        {%- if page.geo %}
+        "geo": {"@type": "GeoCoordinates", "latitude": {{ page.geo.lat }}, "longitude": {{ page.geo.lng }}},
+        {%- endif %}
+        "containedInPlace": {"@type": "Place", "name": {{ page.area | append: ", Scotland" | jsonify }}}
+      }
     },
     {
       "@type": "BreadcrumbList",
@@ -72,7 +84,7 @@
       "url": "{{ site.url }}/about/",
       "name": {{ page.title | jsonify }},
       "description": {{ include.description | jsonify }},
-      "about": {"@id": "{{ site.url }}/#mat"},
+      "about": {"@id": "{{ site.author.url }}/#mat"},
       "isPartOf": {"@id": "{{ site.url }}/#website"}
     }
     {%- else %}

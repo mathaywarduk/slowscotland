@@ -1,13 +1,16 @@
 url: "https://slowscotland.uk"
 title: "Slow Scotland"
-description: "A free 12-week email journey through Scotland's quieter places. Each week, a photograph and a short story from photographer Mat Hayward, with practical notes for visiting."
+description: "A free 12-week slow travel journey by email, through quieter places in the Scottish Highlands and islands. Each week, a photograph, a short story and practical notes for visiting from photographer Mat Hayward."
 # Used in page titles and social previews
-tagline: "A free email journey through Scotland's quieter places"
+tagline: "Slow travel by email, through Scotland's quieter places"
 # Added to each story's description in search results and social previews
 story_description_suffix: "A story from Slow Scotland, a free 12-week email journey through Scotland's quieter places."
 author:
   name: "Mat Hayward"
   url: "https://mathayward.com"
+  # Mat's other profiles, so search engines link them to the author. Keep in step with mathayward.com's schema.
+  same_as:
+    - "https://www.linkedin.com/in/mathaywarduk"
 
 plugins:
   - jekyll-postcss

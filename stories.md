@@ -3,7 +3,7 @@ layout: stories
 title: "Stories"
 heading: "--- *Stories*"
 permalink: /stories/
-description: "Read two Slow Scotland stories here. The other twelve arrive free by email, one a week, each with a photograph and practical notes for visiting."
+description: "Slow travel stories from Scotland's west coast, Highlands and islands. Read two here. The other twelve arrive free by email, one a week, each with a photograph and practical notes for visiting."
 social_image: stac-pollaidh.jpg
 signup_text: "Each week, a photograph and a short story from one of my trips, along with a few practical notes if you want to visit yourself."
 ---

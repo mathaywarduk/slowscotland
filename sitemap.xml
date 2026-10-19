@@ -10,6 +10,6 @@ sitemap: false
   <url><loc>{{ site.url }}{{ p.url }}</loc></url>
 {%- endfor %}
 {%- for s in site.stories %}
-  <url><loc>{{ site.url }}{{ s.url }}</loc></url>
+  <url><loc>{{ site.url }}{{ s.url }}</loc>{% if s.date %}<lastmod>{{ s.updated | default: s.date | date: "%Y-%m-%d" }}</lastmod>{% endif %}</url>
 {%- endfor %}
 </urlset>

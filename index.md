@@ -1,7 +1,7 @@
 ---
 layout: home
 title: "Slow Scotland"
-description: "A free 12-week email journey through Scotland's quieter places. Each week, a photograph and a short story from photographer Mat Hayward, with practical notes for visiting."
+description: "A free 12-week slow travel journey by email, through quieter places in the Scottish Highlands and islands. Each week, a photograph, a short story and practical notes for visiting from photographer Mat Hayward."
 social_image: home.jpg
 hero:
   image: home-hero.jpg

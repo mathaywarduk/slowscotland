@@ -46,6 +46,8 @@ The rule always stays with the word after it, so it never ends a line on its own
 
 Each public story in `_stories` has front matter for its tile, heading, "Before you go" rows and "In the area" items. See `_stories/plockton.md` for a full example. `order` sets the position on the stories page.
 
+For search engines, each story also has `description` (lead with the place), `date` (published; add `updated` when you change a story), `place` and `geo` (rough coordinates). Always set `date`: without it Jekyll uses the build time.
+
 Teasers in `_teasers` only need `title`, `area`, `order` and `image`. They show as blurred tiles that link to the signup form. To make a teaser public, move its file into `_stories`, add the front matter from a public story and write the story below it.
 
 ### Images
