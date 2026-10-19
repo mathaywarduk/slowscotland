@@ -24,6 +24,7 @@ Slow Scotland is free. Sign up on any page with an email address: subscribers ge
 ## About
 
 - [About Slow Scotland]({{ site.url }}/about/): who writes it and why
+- [What slow travel means to me]({{ site.url }}/slow-travel/): why it is called Slow Scotland
 - [All stories]({{ site.url }}/stories/)
 - [Privacy policy]({{ site.url }}/privacy/): how email addresses are used (Mailchimp; Plausible for anonymous visit counts)
 - [Mat Hayward's photography]({{ site.author.url }})

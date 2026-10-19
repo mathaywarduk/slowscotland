@@ -60,6 +60,8 @@ layout: default
 
 {% include signup.html text=page.signup_text tone="brown" %}
 
+{% comment %} Stories only: other pages using this layout (e.g. /slow-travel/) end at the signup {% endcomment %}
+{% if page.collection == "stories" %}
 {% assign others = site.stories | where_exp: "s", "s.url != page.url" | sort: "order" %}
 {% assign teasers = site.teasers | sort: "order" %}
 {% assign need = 3 | minus: others.size %}
@@ -76,3 +78,4 @@ layout: default
     {% endif %}
   </div>
 </section>
+{% endif %}

@@ -53,6 +53,16 @@
   height: auto;
 }
 
+/* Phones: logo centred at the top, nav centred beneath it */
+@media (max-width: 767px) {
+  .site-header {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .site-logo { order: -1; }
+  .site-nav ul { justify-content: center; }
+}
+
 @media (min-width: 768px) {
   .site-header {
     --logo-w: 104px;
