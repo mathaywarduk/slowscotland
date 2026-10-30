@@ -11,6 +11,6 @@ signoff: Mat
 
 Thanks for subscribing to Slow Scotland.
 
-Your first email is on its way. Each week for the next twelve weeks, I'll send a photograph and a short story from one of my trips, along with a few practical notes if you want to visit yourself.
+Your first email is on its way. Each week for the next twelve weeks, I'll send a photograph and a short story from one of my trips, along with a few practical notes if you want to visit yourself. After that, I'll write now and then with new places, itineraries and what's coming next.
 
 If nothing arrives in the next few minutes, check your spam or promotions folder, and add the address it came from to your contacts.

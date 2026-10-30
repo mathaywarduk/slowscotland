@@ -60,7 +60,7 @@ signup:
   heading: "Start the journey"
   placeholder: "Enter your email address"
   button: "Go"
-  note: "One email a week, for twelve weeks."
+  note: "One email a week for twelve weeks, then the occasional email after that."
   privacy_link: "Read our privacy policy"
   locked_cta: "Arrives by email."
   locked_link: "Sign up free"

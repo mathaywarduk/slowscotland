@@ -189,5 +189,18 @@ a { color: inherit; }
   text-underline-offset: 0.2em;
 }
 
+/* Read by screen readers, not shown */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Keeps the rule with the word after it */
 .h1-glue { white-space: nowrap; }

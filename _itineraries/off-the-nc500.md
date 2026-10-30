@@ -69,4 +69,4 @@ document:
   text: "A day-by-day plan for each itinerary, with maps, where to park, how long to allow, when the light is best, where to eat and where to stay, plus the things that catch people out."
 ---
 
-The far north west is the best stretch of the North Coast 500, but sometimes you can spend hours sitting behind campervans. This itinerary stays on or near the route without following it, using the single track roads, beaches and hills around it, and keeps you in one or two places so you can swap days around and save the hills for the clear ones.
+The far north west is the best stretch of the North Coast 500, but sometimes you can spend hours sitting behind campervans. This itinerary stays on or near the north west part of the route without following it, using the single track roads, beaches and hills around it, and keeps you in one or two places so you can swap days around and save the hills for the clear ones.

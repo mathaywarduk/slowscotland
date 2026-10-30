@@ -16,6 +16,6 @@ Buying an itinerary doesn't sign you up to the email series. We'll only email yo
 
 We use [Plausible](https://plausible.io/data-policy){:target="_blank" rel="noopener"} to count visits to this website, including clicks on the buy buttons and completed orders. It doesn't use cookies or collect any personal information.
 
-After you sign up, you'll receive 12 emails over 12 weeks, one a week. After that, we may send you additional emails from time to time, but they will always be on the subject of Scotland, travel and quieter places.
+After you sign up, you'll receive 12 emails over 12 weeks, one a week. After that, we'll send occasional emails. They'll always be about Scotland, travel and quieter places.
 
 You can unsubscribe at any time using the link at the bottom of every email. If you have any questions about your data, or would like it deleted, email [hello@slowscotland.uk](mailto:hello@slowscotland.uk).
