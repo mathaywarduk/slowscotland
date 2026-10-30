@@ -8,6 +8,8 @@ area: "Isle of Skye"
 # The place itself, and roughly where it is, for search engines
 place: "Elgol"
 geo: { lat: 57.1453, lng: -6.1060 }
+# Itinerary for this area, shown after the signup (file name in _itineraries)
+itinerary: quieter-skye
 order: 2
 # lift raises the photo so the kayaker isn't hidden behind the fade and heading.
 image:

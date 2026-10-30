@@ -7,9 +7,6 @@ heading:
   - "Quieter"
   - "--- *Skye*"
 description: "A 6 day itinerary for the quieter south of Skye from Glenelg, with long walks to remote beaches, swims in waterfall pools and sunsets over the Cuillin."
-# Not on sale yet: shows "Coming soon" instead of the price and buy buttons.
-# Delete when it's on sale.
-coming_soon: true
 # Published, and (optional) updated: when the page last changed. Shown to search engines.
 date: 2026-10-30
 # Position on the itineraries page
@@ -24,8 +21,7 @@ social_image: camasunary.jpg
 price: "£5"
 buy_text: "Buy the itinerary"
 # Payhip product code: the end of the product link, e.g. payhip.com/b/1hiLB
-# TODO: add once the product exists on Payhip
-payhip: ""
+payhip: "SorMZ"
 
 # Facts strip under the photo
 summary:
