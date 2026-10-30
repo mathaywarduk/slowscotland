@@ -24,7 +24,7 @@ All copy lives in Markdown files with front matter. The body of each file is the
 | Public stories | `_stories/*.md` |
 | Locked stories (teasers) | `_teasers/*.md` |
 | Itineraries index | `itineraries.md` |
-| Itineraries | `_itineraries/*.md` (facts, carousel photos, price and Payhip product code in front matter) |
+| Itineraries | `_itineraries/*.md` (facts, carousel photos, price and Payhip product code in front matter; `seo_title` and `seo_description` change only search results and social previews) |
 | Signup form text, nav, footer | `_config.yml` (restart the server after editing) |
 
 ### Headings
@@ -48,6 +48,8 @@ The rule always stays with the word after it, so it never ends a line on its own
 
 Each public story in `_stories` has front matter for its tile, heading, "Before you go" rows and "In the area" items. See `_stories/plockton.md` for a full example. `order` sets the position on the stories page.
 
+A story can name an itinerary for the same area with `itinerary` (its file name in `_itineraries`, e.g. `quieter-skye`). It then shows that itinerary's card after the signup.
+
 For search engines, each story also has `description` (lead with the place), `date` (published; add `updated` when you change a story), `place` and `geo` (rough coordinates). Always set `date`: without it Jekyll uses the build time.
 
 Teasers in `_teasers` only need `title`, `area`, `order` and `image`. They show as blurred tiles that link to the signup form. To make a teaser public, move its file into `_stories`, add the front matter from a public story and write the story below it.
@@ -60,7 +62,7 @@ Itinerary carousel photos go in `assets/images/itineraries`. After adding or rep
 
 Social sharing images (1200x630, with the logo) are in `assets/images/social`, made by `./scripts/social-images.sh`; re-run it after changing a story, home or about photo. A page can choose its image with `social_image` in front matter.
 
-After adding or replacing a story photo, run `./scripts/tiles.sh` to make the smaller copies the tiles and phones use (needs ImageMagick). Locked tiles blur their image with CSS.
+After adding or replacing a story photo, run `./scripts/tiles.sh` to make the smaller copies the tiles and phones use (800px in `tiles/`, 1200px in `1200/`; needs ImageMagick). Locked tiles blur their image with CSS.
 
 ### Signup
 

@@ -1,10 +1,14 @@
 ---
 title: "Off the NC500"
+# Browser tab, search results and social previews only (adds " - Slow Scotland")
+seo_title: "Off the NC500: Assynt and Torridon Itinerary"
 # Page heading. --- places the rule, *asterisks* make italics.
 heading:
   - "Off the"
   - "--- *NC500*"
 description: "A 3, 5 or 7 day itinerary for Assynt and Torridon that stays near the North Coast 500 without following it, using the single track roads, beaches and hills."
+# Published, and (optional) updated: when the page last changed. Shown to search engines.
+date: 2026-10-30
 # Position on the itineraries page
 order: 1
 # Photo in assets/images/stories. position (optional) sets the focal point for crops.

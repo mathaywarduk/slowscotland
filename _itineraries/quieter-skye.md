@@ -1,5 +1,7 @@
 ---
 title: "Quieter Skye"
+# Browser tab, search results and social previews only (adds " - Slow Scotland")
+seo_title: "Quieter Skye: 6 Day Isle of Skye Itinerary"
 # Page heading. --- places the rule, *asterisks* make italics.
 heading:
   - "Quieter"
@@ -8,6 +10,8 @@ description: "A 6 day itinerary for the quieter south of Skye from Glenelg, with
 # Not on sale yet: shows "Coming soon" instead of the price and buy buttons.
 # Delete when it's on sale.
 coming_soon: true
+# Published, and (optional) updated: when the page last changed. Shown to search engines.
+date: 2026-10-30
 # Position on the itineraries page
 order: 2
 # Photo in assets/images/stories. position (optional) sets the focal point for crops.

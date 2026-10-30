@@ -77,6 +77,66 @@
         {"@type": "ListItem", "position": 2, "name": "Stories", "item": "{{ site.url }}/stories/"}
       ]
     }
+    {%- elsif page.collection == "itineraries" %}
+    {%- assign itinerary_url = site.url | append: page.url %}
+    {
+      {%- if page.coming_soon %}
+      "@type": "WebPage",
+      "@id": "{{ itinerary_url }}#page",
+      "url": "{{ itinerary_url }}",
+      "name": {{ page.title | jsonify }},
+      "description": {{ include.description | jsonify }},
+      "image": "{{ site.url }}/assets/images/stories/{{ page.image.src }}",
+      "isPartOf": {"@id": "{{ site.url }}/#website"}
+      {%- else %}
+      {%- comment %} On sale: a Product with its price, so search results can show it {%- endcomment %}
+      "@type": "Product",
+      "@id": "{{ itinerary_url }}#product",
+      "name": {{ page.title | jsonify }},
+      "description": {{ include.description | jsonify }},
+      "image": ["{{ site.url }}/assets/images/stories/{{ page.image.src }}", {{ include.share_url | jsonify }}],
+      "url": "{{ itinerary_url }}",
+      "brand": {"@type": "Brand", "name": {{ site.title | jsonify }}},
+      "offers": {
+        "@type": "Offer",
+        "url": "{{ itinerary_url }}",
+        "price": "{{ page.price | remove: "£" | strip }}",
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/InStock",
+        "seller": {"@id": "{{ site.author.url }}/#mat"}
+      }
+      {%- endif %}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": {{ home_url | jsonify }}},
+        {"@type": "ListItem", "position": 2, "name": "Itineraries", "item": "{{ site.url }}/itineraries/"},
+        {"@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}, "item": "{{ itinerary_url }}"}
+      ]
+    }
+    {%- elsif page.url == "/itineraries/" %}
+    {
+      "@type": "CollectionPage",
+      "@id": "{{ site.url }}/itineraries/#page",
+      "url": "{{ site.url }}/itineraries/",
+      "name": {{ page.title | jsonify }},
+      "description": {{ include.description | jsonify }},
+      "isPartOf": {"@id": "{{ site.url }}/#website"},
+      "hasPart": [
+        {%- assign itineraries = site.itineraries | sort: "order" -%}
+        {%- for itinerary in itineraries %}
+        {"@type": "WebPage", "name": {{ itinerary.title | jsonify }}, "url": "{{ site.url }}{{ itinerary.url }}"}{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": {{ home_url | jsonify }}},
+        {"@type": "ListItem", "position": 2, "name": "Itineraries", "item": "{{ site.url }}/itineraries/"}
+      ]
+    }
     {%- elsif page.url == "/about/" %}
     {
       "@type": "AboutPage",

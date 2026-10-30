@@ -5,7 +5,7 @@ layout: default
   {% comment %} Photo and facts strip together fill the first screen {% endcomment %}
   <div class="itin-top">
     <header class="itin-hero">
-      <img class="itin-hero__img" src="/assets/images/stories/{{ page.image.src }}" srcset="/assets/images/stories/tiles/{{ page.image.src }} 800w, /assets/images/stories/{{ page.image.src }} 2000w" sizes="100vw" alt="{{ page.image.alt }}" fetchpriority="high"{% if page.image.position %} style="object-position: {{ page.image.position }}"{% endif %}>
+      <img class="itin-hero__img" src="/assets/images/stories/{{ page.image.src }}" srcset="/assets/images/stories/tiles/{{ page.image.src }} 800w, /assets/images/stories/1200/{{ page.image.src }} 1200w, /assets/images/stories/{{ page.image.src }} 2000w" sizes="100vw" alt="{{ page.image.alt }}" fetchpriority="high"{% if page.image.position %} style="object-position: {{ page.image.position }}"{% endif %}>
       <div class="itin-hero__heading">
         <p class="itin-hero__label">Itinerary</p>
         {% include h1.html text=page.heading %}

@@ -3,6 +3,7 @@ layout: itineraries
 title: "Itineraries"
 heading: "--- *Itineraries*"
 permalink: /itineraries/
+social_image: trossachs-ben-aan.jpg
 description: "Day-by-day slow travel itineraries for Scotland’s quieter places, from Assynt and Torridon to the south of Skye, with maps, walks and where to stay."
 signup_text: "Each week, a photograph and a short story from one of my trips, along with a few practical notes if you want to visit yourself."
 ---

@@ -6,11 +6,11 @@
     {% if page.url == "/" %}
     {% assign page_title = site.title | append: " - " | append: site.tagline %}
     {% else %}
-    {% assign page_title = page.title | append: " - " | append: site.title %}
+    {% comment %} seo_title is for search results and social previews only; the page itself shows its heading {% endcomment %}
+    {% assign page_title = page.seo_title | default: page.title | append: " - " | append: site.title %}
     {% endif %}
     <title>{{ page_title }}</title>
-    {% assign description = page.description | default: site.description %}
-    {% if page.collection == "stories" %}{% assign description = description | append: " " | append: site.story_description_suffix %}{% endif %}
+    {% assign description = page.seo_description | default: page.description | default: site.description %}
     {% assign description = description | strip_html | strip %}
     <meta name="description" content="{{ description }}">
     {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}

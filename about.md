@@ -3,7 +3,7 @@ layout: about
 title: "About"
 heading: "--- *About*"
 permalink: /about/
-description: "Photographer Mat Hayward on Slow Scotland, a free twelve-week email series of photographs and short stories from quieter, often overlooked places in the Highlands and islands."
+description: "Photographer Mat Hayward on Slow Scotland, a free twelve-week email series of photographs and stories from quieter places in the Highlands and islands."
 social_image: about.jpg
 image:
   src: about-mat.jpg

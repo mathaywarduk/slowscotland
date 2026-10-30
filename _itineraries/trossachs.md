@@ -1,5 +1,7 @@
 ---
 title: "Mountains and Lochs of the Trossachs"
+# Browser tab, search results and social previews only (adds " - Slow Scotland")
+seo_title: "Trossachs Itinerary: 3 or 6 Days of Hills and Lochs"
 # Page heading. --- places the rule, *asterisks* make italics.
 heading:
   - "Mountains and Lochs"
@@ -8,6 +10,8 @@ description: "A 3 or 6 day itinerary for the quieter side of the Trossachs, with
 # Not on sale yet: shows "Coming soon" instead of the price and buy buttons.
 # Delete when it's on sale.
 coming_soon: true
+# Published, and (optional) updated: when the page last changed. Shown to search engines.
+date: 2026-10-30
 # Position on the itineraries page
 order: 3
 # Photo in assets/images/stories. position (optional) sets the focal point for crops.

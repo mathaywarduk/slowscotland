@@ -13,6 +13,6 @@ sitemap: false
   <url><loc>{{ site.url }}{{ s.url }}</loc>{% if s.date %}<lastmod>{{ s.updated | default: s.date | date: "%Y-%m-%d" }}</lastmod>{% endif %}</url>
 {%- endfor %}
 {%- for i in site.itineraries %}
-  <url><loc>{{ site.url }}{{ i.url }}</loc></url>
+  <url><loc>{{ site.url }}{{ i.url }}</loc>{% if i.date %}<lastmod>{{ i.updated | default: i.date | date: "%Y-%m-%d" }}</lastmod>{% endif %}</url>
 {%- endfor %}
 </urlset>

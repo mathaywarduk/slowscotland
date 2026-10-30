@@ -16,3 +16,11 @@
   for = "/assets/fonts/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# The Netlify address serves the same site; send it to the real domain so
+# search engines only see one copy. Deploy previews use other addresses.
+[[redirects]]
+  from = "https://slowscotland.netlify.app/*"
+  to = "https://slowscotland.uk/:splat"
+  status = 301
+  force = true

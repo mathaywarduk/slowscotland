@@ -3,7 +3,7 @@ layout: default
 ---
 <article class="story">
   <header class="story-hero{% if page.image.lift %} story-hero--lifted{% endif %}"{% if page.image.lift %} style="--lift: {{ page.image.lift }}"{% endif %}>
-    <img class="story-hero__img" src="/assets/images/stories/{{ page.image.src }}" srcset="/assets/images/stories/tiles/{{ page.image.src }} 800w, /assets/images/stories/{{ page.image.src }} 2000w" sizes="100vw" alt="{{ page.image.alt }}" fetchpriority="high"{% if page.image.position %} style="object-position: {{ page.image.position }}"{% endif %}>
+    <img class="story-hero__img" src="/assets/images/stories/{{ page.image.src }}" srcset="/assets/images/stories/tiles/{{ page.image.src }} 800w, /assets/images/stories/1200/{{ page.image.src }} 1200w, /assets/images/stories/{{ page.image.src }} 2000w" sizes="100vw" alt="{{ page.image.alt }}" fetchpriority="high"{% if page.image.position %} style="object-position: {{ page.image.position }}"{% endif %}>
     <div class="offset">
       <div class="offset__aside"></div>
       <div class="offset__main">
@@ -59,6 +59,19 @@ layout: default
 </article>
 
 {% include signup.html text=page.signup_text tone="brown" %}
+
+{% comment %} An itinerary for the same area: itinerary in front matter names its file, e.g. quieter-skye {% endcomment %}
+{% if page.itinerary %}
+{% assign related = site.itineraries | where: "slug", page.itinerary | first %}
+{% if related %}
+<section class="story-itinerary" aria-labelledby="story-itinerary">
+  <h2 class="more-stories__heading" id="story-itinerary">Make a trip of it</h2>
+  <div class="itin-cards">
+    {% include itinerary-card.html itinerary=related lazy=true heading="h3" %}
+  </div>
+</section>
+{% endif %}
+{% endif %}
 
 {% comment %} Stories only: other pages using this layout (e.g. /slow-travel/) end at the signup {% endcomment %}
 {% if page.collection == "stories" %}

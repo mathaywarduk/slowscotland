@@ -9,51 +9,12 @@ layout: default
   </div>
 </section>
 
-{% comment %}
-  One card per itinerary: the photo beside a dark panel (stacked on phones)
-  with the heading, description, the first two facts, price and button.
-  Coming soon itineraries get a tag on the photo and a text link instead.
-{% endcomment %}
+{% comment %} One card per itinerary (_includes/itinerary-card.html) {% endcomment %}
 {% assign itineraries = site.itineraries | sort: "order" %}
 <div class="itin-cards">
   {% for itinerary in itineraries %}
-  {%- comment -%} Plain name for screen readers: the heading without the rule and italics {%- endcomment -%}
-  {%- if itinerary.heading.first == nil -%}{%- assign name = itinerary.heading -%}{%- else -%}{%- assign name = itinerary.heading | join: " " -%}{%- endif -%}
-  {%- assign name = name | remove: "---" | remove: "*" | split: " " | join: " " %}
-  <a class="itin-card" href="{{ itinerary.url }}" aria-label="{% if itinerary.coming_soon %}Find out more about the {{ name }} itinerary, coming soon{% else %}Explore the {{ name }} itinerary, {{ itinerary.price }}{% endif %}">
-    <div class="itin-card__photo">
-      {% if itinerary.coming_soon %}<span class="soon-tag itin-card__tag">Coming soon</span>{% endif %}
-      <img class="itin-card__img" src="/assets/images/stories/tiles/{{ itinerary.image.src }}" srcset="/assets/images/stories/tiles/{{ itinerary.image.src }} 800w, /assets/images/stories/{{ itinerary.image.src }} 2000w" sizes="(min-width: 900px) 50vw, 100vw" alt="" {% unless forloop.first %}loading="lazy"{% endunless %}{% if itinerary.image.position %} style="object-position: {{ itinerary.image.position }}"{% endif %}>
-    </div>
-    <div class="itin-card__panel">
-      <span class="itin-card__label">Itinerary</span>
-      {%- comment -%} Heading is one string or a list of lines, as in _includes/h1.html {%- endcomment -%}
-      {%- assign lines = itinerary.heading -%}
-      {%- if lines.first == nil -%}{%- assign lines = itinerary.heading | split: "@@nosplit@@" -%}{%- endif %}
-      <h2 class="itin-card__title">
-        {%- for line in lines -%}
-          <span class="h1__line">{% include heading-line.html text=line %}{{ " " }}</span>
-        {%- endfor -%}
-      </h2>
-      <p class="itin-card__text">{{ itinerary.description }}</p>
-      <dl class="itin-card__facts">
-        {% for row in itinerary.summary limit: 2 %}
-        <div>
-          <dt>{{ row.label }}</dt>
-          <dd>{{ row.text }}</dd>
-        </div>
-        {% endfor %}
-      </dl>
-      <div class="itin-buy">
-        {% if itinerary.coming_soon %}
-        <span class="itin-card__more"><span class="u">Find out more<span class="visually-hidden"> about {{ name }}</span></span></span>
-        {% else %}
-        <span class="itin-price">{{ itinerary.price }}</span>
-        <span class="buy-button">Explore<span class="visually-hidden"> {{ name }}</span></span>
-        {% endif %}
-      </div>
-    </div>
-  </a>
+  {% if forloop.first %}{% assign lazy = false %}{% else %}{% assign lazy = true %}{% endif %}
+  {% include itinerary-card.html itinerary=itinerary lazy=lazy %}
   {% endfor %}
 </div>
 

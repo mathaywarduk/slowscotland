@@ -1,5 +1,7 @@
 ---
 title: "Island Camping on Eigg and Mull"
+# Browser tab, search results and social previews only (adds " - Slow Scotland")
+seo_title: "Eigg and Mull Itinerary: Island Camping by Campervan"
 # Page heading. --- places the rule, *asterisks* make italics.
 heading:
   - "Island Camping"
@@ -8,6 +10,10 @@ description: "A campervan itinerary for Mull, Eigg or both, with nights on the b
 # Not on sale yet: shows "Coming soon" instead of the price and buy buttons.
 # Delete when it's on sale.
 coming_soon: true
+# Search results and social previews only; description (above) also shows on the card
+seo_description: "A campervan itinerary for Mull, Eigg or both, with nights on the beach at Uisken and Calgary Bay, a walk to Sanna Bay and days on car-free Eigg."
+# Published, and (optional) updated: when the page last changed. Shown to search engines.
+date: 2026-10-30
 # Position on the itineraries page
 order: 4
 # Photo in assets/images/stories. position (optional) sets the focal point for crops.
