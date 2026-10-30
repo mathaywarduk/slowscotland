@@ -1,6 +1,6 @@
 url: "https://slowscotland.uk"
 title: "Slow Scotland"
-description: "A free 12-week slow travel journey by email, through quieter places in the Scottish Highlands and islands. Each week, a photograph, a short story and practical notes for visiting from photographer Mat Hayward."
+description: "Slow travel through Scotland’s quieter places from photographer Mat Hayward: a free 12-week journey by email, and itineraries for the Highlands and islands."
 # Used in page titles and social previews
 tagline: "Slow travel by email, through Scotland's quieter places"
 # Added to each story's description in search results and social previews
@@ -25,6 +25,10 @@ collections:
     permalink: /stories/:name/
   teasers:
     output: false
+  # Itineraries: one Markdown file each, sold through Payhip
+  itineraries:
+    output: true
+    permalink: /itineraries/:name/
 
 defaults:
   - scope:
@@ -32,6 +36,10 @@ defaults:
     values:
       layout: story
       signoff: Mat
+  - scope:
+      type: itineraries
+    values:
+      layout: itinerary
 
 # Signup form. Paste the Mailchimp embedded form action URL here when ready.
 # e.g. https://slowscotland.us21.list-manage.com/subscribe/post?u=XXXX&id=YYYY
@@ -39,6 +47,10 @@ signup:
   # From the Mailchimp embedded form code: the form's action URL and the hidden "b_..." field name.
   mailchimp_action: "https://slowscotland.us11.list-manage.com/subscribe/post?u=7175e63d67cc05df1a4aff310&id=e41559d450&f_id=00389ce0f0"
   mailchimp_honeypot: "b_7175e63d67cc05df1a4aff310_e41559d450"
+  # Tag added to everyone who signs up here, so the 12-week journey can start
+  # from it (and itinerary buyers added by Payhip don't get it). The number is
+  # in the tags field of Mailchimp's embedded form code. Leave empty for no tag.
+  mailchimp_tag: "9302180"
   # Shown under the form after a successful signup
   success: "Thanks. Check your inbox to confirm your email address."
   error: "Something went wrong. Please try again."
@@ -54,12 +66,14 @@ signup:
   locked_link: "Sign up free"
 
 # Markdown, so links work
-footer: 'Slow Scotland is an email series from [Mat Hayward](https://mathayward.com){:target="_blank" rel="noopener"}'
+footer: 'Slow Scotland is stories and itineraries from [Mat Hayward](https://mathayward.com){:target="_blank" rel="noopener"}, a photographer who lives in Scotland.'
 copyright: "Mat Hayward"
 
 nav:
   - title: Stories
     url: /stories/
+  - title: Itineraries
+    url: /itineraries/
   - title: Slow travel
     url: /slow-travel/
   - title: About

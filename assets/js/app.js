@@ -113,3 +113,95 @@ document.querySelectorAll('form[data-signup]').forEach(function (form) {
     document.body.appendChild(script);
   });
 });
+
+// Itinerary photo carousel: moves the row so the current photo starts at the
+// left edge, looping at both ends. Swipe works on touch screens. Without
+// JavaScript the row scrolls sideways and the buttons stay hidden.
+document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+  var viewport = carousel.querySelector('.carousel__viewport');
+  var track = carousel.querySelector('.carousel__track');
+  var slides = track.querySelectorAll('.carousel__slide');
+  var counter = carousel.querySelector('[data-carousel-counter]');
+  var count = slides.length;
+  var current = 0;
+
+  function update() {
+    track.style.transform = 'translateX(-' + slides[current].offsetLeft + 'px)';
+    counter.textContent = (current + 1) + ' of ' + count;
+  }
+
+  function go(step) {
+    current = (current + step + count) % count;
+    update();
+  }
+
+  carousel.querySelector('[data-carousel-prev]').addEventListener('click', function () { go(-1); });
+  carousel.querySelector('[data-carousel-next]').addEventListener('click', function () { go(1); });
+
+  var startX = null;
+  viewport.addEventListener('touchstart', function (event) {
+    startX = event.touches[0].clientX;
+  }, { passive: true });
+  viewport.addEventListener('touchend', function (event) {
+    if (startX === null) return;
+    var distance = event.changedTouches[0].clientX - startX;
+    startX = null;
+    if (Math.abs(distance) > 40) go(distance < 0 ? 1 : -1);
+  });
+
+  // Photo widths aren't known until each one loads, and change with the screen
+  slides.forEach(function (slide) { slide.addEventListener('load', update); });
+  window.addEventListener('resize', update);
+
+  viewport.scrollLeft = 0;
+  carousel.classList.add('is-ready');
+  carousel.querySelector('.carousel__controls').hidden = false;
+  update();
+});
+
+// Thank-you page: each Payhip product redirects to /thank-you/?itinerary=<file name>,
+// so name the itinerary they bought and count the sale in Plausible.
+var thanks = document.querySelector('[data-itinerary-thanks]');
+var titles = document.getElementById('itinerary-titles');
+if (thanks && titles) {
+  var bought = new URLSearchParams(window.location.search).get('itinerary');
+  var names = JSON.parse(titles.textContent);
+  var known = bought && Object.prototype.hasOwnProperty.call(names, bought);
+  if (known) {
+    thanks.textContent = thanks.dataset.itineraryThanks + ' ' + names[bought] + ' ' + thanks.dataset.itineraryThanksEnd;
+  }
+  // Recorded against /thank-you/<itinerary>/, so Plausible's Top Pages shows
+  // which itinerary sold without needing custom properties
+  if (window.plausible) {
+    var page = known ? bought : 'unknown';
+    window.plausible('Purchase', {
+      url: window.location.origin + '/thank-you/' + page + '/',
+      props: { itinerary: page }
+    });
+  }
+}
+
+// Itinerary buy buttons: count clicks in Plausible, so sales can be compared
+// with clicks to see how many people leave at checkout. Plausible's Top Pages
+// shows which itinerary page each click came from. Waits for the event to
+// send before going to checkout (at most a second); new-tab clicks just go.
+document.addEventListener('click', function (event) {
+  var link = event.target.closest('a[data-buy]');
+  if (!link || !window.plausible) return;
+
+  var props = { itinerary: link.dataset.buy, placement: link.dataset.placement };
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) {
+    window.plausible('Buy click', { props: props });
+    return;
+  }
+
+  event.preventDefault();
+  var gone = false;
+  function go() {
+    if (gone) return;
+    gone = true;
+    window.location.href = link.href;
+  }
+  setTimeout(go, 1000);
+  window.plausible('Buy click', { props: props, callback: go });
+});

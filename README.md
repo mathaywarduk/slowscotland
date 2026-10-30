@@ -23,6 +23,8 @@ All copy lives in Markdown files with front matter. The body of each file is the
 | Stories index | `stories.md` |
 | Public stories | `_stories/*.md` |
 | Locked stories (teasers) | `_teasers/*.md` |
+| Itineraries index | `itineraries.md` |
+| Itineraries | `_itineraries/*.md` (facts, carousel photos, price and Payhip product code in front matter) |
 | Signup form text, nav, footer | `_config.yml` (restart the server after editing) |
 
 ### Headings
@@ -53,6 +55,8 @@ Teasers in `_teasers` only need `title`, `area`, `order` and `image`. They show 
 ### Images
 
 Story photos go in `assets/images/stories` and are referenced by filename in front matter (`image.src`). Add `image.position` (e.g. `"50% 70%"`) to choose which part of the photo crops keep. If a story's subject sits low in the photo and gets hidden by the fade and heading, add `image.lift` (e.g. `"22%"`) to raise the photo so the heading sits below it (see `_stories/elgol.md`).
+
+Itinerary carousel photos go in `assets/images/itineraries`. After adding or replacing one, run `./scripts/itinerary-photos.sh` to make the 1040px high copies the carousel uses. The full-size originals there aren't committed (see `.gitignore`), only the copies in `carousel/`, so keep the originals backed up elsewhere.
 
 Social sharing images (1200x630, with the logo) are in `assets/images/social`, made by `./scripts/social-images.sh`; re-run it after changing a story, home or about photo. A page can choose its image with `social_image` in front matter.
 

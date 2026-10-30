@@ -1,7 +1,6 @@
 ---
 layout: home
 title: "Slow Scotland"
-description: "A free 12-week slow travel journey by email, through quieter places in the Scottish Highlands and islands. Each week, a photograph, a short story and practical notes for visiting from photographer Mat Hayward."
 social_image: home.jpg
 hero:
   image: home-hero.jpg
@@ -18,6 +17,10 @@ heading:
 button:
   text: "Read the stories"
   url: /stories/
+# Quieter text link beside the button
+link:
+  text: "See the itineraries"
+  url: /itineraries/
 ---
 
-I've spent years exploring the west coast, Highlands and islands, looking for the places that don't make it into the usual guides. Slow Scotland is a twelve-week email journey through some of them. Each week, a photograph and a short story from one of my trips, along with a few practical notes if you want to visit yourself.
+I've spent years exploring the west coast, Highlands and islands, looking for the places that don't make it into the usual guides. Slow Scotland is a twelve-week email journey through some of them. Each week, a photograph and a short story from one of my trips, along with a few practical notes if you want to visit yourself. If you want to plan a trip of your own, there are day-by-day itineraries too.

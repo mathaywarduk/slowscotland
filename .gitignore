@@ -4,3 +4,8 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 node_modules/
+
+# Full-size photos stay on this machine; only the resized copies are published.
+# Itinerary originals feed ./scripts/itinerary-photos.sh (assets/images/itineraries/carousel).
+_photos/
+assets/images/itineraries/*.jpg

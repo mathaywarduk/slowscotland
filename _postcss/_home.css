@@ -69,8 +69,17 @@
   max-width: 640px;
 }
 
-.home__intro .button {
+/* Button with a quieter text link beside it */
+.home__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
   margin-top: 20px;
+}
+
+.home__link {
+  line-height: 1.4;
 }
 
 .home__signup {
@@ -152,7 +161,7 @@
   }
   .home__intro p { max-width: none; }
 
-  .home__intro .button {
+  .home__actions {
     margin-top: 1.6em;
     font-size: max(14px, calc(18 * var(--u)));
   }

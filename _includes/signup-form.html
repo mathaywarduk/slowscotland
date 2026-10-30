@@ -10,6 +10,8 @@
       <input type="email" name="EMAIL" id="signup-email-{{ include.id | default: 'main' }}" placeholder="{{ site.signup.placeholder }}" aria-label="Email address" autocomplete="email" required>
       <button type="submit">{{ site.signup.button }}</button>
     </div>
+    {% assign tag = site.signup.mailchimp_tag | strip %}
+    {% if tag != "" %}<input type="hidden" name="tags" value="{{ tag }}">{% endif %}
     {% comment %} Honeypot: hidden from people, bots fill it in and get rejected. {% endcomment %}
     <div class="signup-form__hp" aria-hidden="true">
       <input type="text" name="{{ site.signup.mailchimp_honeypot }}" tabindex="-1" value="" autocomplete="off">

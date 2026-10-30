@@ -1,0 +1,14 @@
+{%- comment -%}
+  Buy button for an itinerary. With a Payhip product code (payhip in front
+  matter) it goes straight to Payhip's checkout; after paying, Payhip sends
+  buyers to /thank-you/ (set in Payhip, not here). Without a code it's a
+  placeholder. Clicks are counted in Plausible (assets/js/app.js).
+  Params: itinerary (the page or document), placement ("top" or "bottom").
+{%- endcomment -%}
+{%- assign itinerary = include.itinerary -%}
+{%- assign code = itinerary.payhip | strip -%}
+{%- if code != "" -%}
+<a class="buy-button" href="https://payhip.com/buy?link={{ code }}" data-buy="{{ itinerary.slug }}" data-placement="{{ include.placement }}">{{ itinerary.buy_text }}</a>
+{%- else -%}
+<a class="buy-button" href="#payhip-code-needed">{{ itinerary.buy_text }}</a>
+{%- endif -%}

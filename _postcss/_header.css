@@ -14,7 +14,8 @@
 .layout-home .site-nav a { color: var(--ground); }
 
 .layout-home .site-header,
-.layout-story .site-header {
+.layout-story .site-header,
+.layout-itinerary .site-header {
   position: absolute;
   top: 0;
   left: 0;
@@ -60,7 +61,18 @@
     gap: 14px;
   }
   .site-logo { order: -1; }
-  .site-nav ul { justify-content: center; }
+  .site-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 6px;
+  }
+  .site-nav a { white-space: nowrap; }
+}
+
+/* Four nav items: tighter on narrow phones, wrapping to two rows below about 340px */
+@media (max-width: 420px) {
+  .site-nav ul { column-gap: 18px; }
+  .site-nav a { font-size: 16px; }
 }
 
 @media (min-width: 768px) {

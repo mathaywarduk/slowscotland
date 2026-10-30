@@ -1,0 +1,485 @@
+/*
+  Itinerary page. Designed at 1440px wide.
+  Phones, like the home page: the first screen is the photo with just the
+  heading at the bottom; the intro and facts strip follow as you scroll,
+  with the photo fading into the dark ground.
+  From 768px the photo and facts strip fill the first screen together. The
+  photo's content sits in the flow, so on short screens the first screen
+  grows rather than squashing the heading.
+*/
+.itinerary,
+.itin-cards {
+  --label: #BFB4AA;
+}
+
+.itin-hero {
+  position: relative;
+  isolation: isolate;
+  padding: 0 var(--pad) 36px;
+  color: var(--on-image);
+}
+
+.itin-hero__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* Clear at the top for the nav, darkening behind the heading, fading into the ground */
+.itin-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  height: 100svh;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(13, 10, 6, 0) 70px, rgba(13, 10, 6, .2) 45%, rgba(13, 10, 6, .7) 82%, var(--ground) 100%);
+}
+
+.itin-hero__heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 14px;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 150px 0 32px;
+  box-sizing: border-box;
+}
+
+.itin-hero__label {
+  font-size: 16px;
+  letter-spacing: .04em;
+  line-height: 1.4;
+}
+
+.itin-hero .h1 {
+  font-size: clamp(44px, 5.3vw, 76px);
+  line-height: 1.05;
+}
+
+.itin-hero__intro p {
+  max-width: 640px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .itin-top {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+  .itin-hero {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 14px;
+    min-height: 560px;
+    padding: 180px var(--pad) 48px;
+  }
+  .itin-hero__img,
+  .itin-hero::after {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: auto;
+  }
+  .itin-hero__img { height: 100%; }
+  .itin-hero::after {
+    background: linear-gradient(to top, rgba(13, 10, 6, .92) 0%, rgba(13, 10, 6, .45) 40%, rgba(13, 10, 6, 0) 70%);
+  }
+  .itin-hero__heading {
+    min-height: 0;
+    padding: 0;
+  }
+  .itin-hero__intro p {
+    margin-top: 6px;
+    font-size: 19px;
+  }
+  .itin-hero .h1 {
+    --rule-width: 110px;
+    --rule-gap: 20px;
+  }
+}
+
+/* Facts strip: two by two on phones, a row with dividers from tablet up */
+.itin-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px 32px;
+  padding: 24px var(--pad);
+  background: var(--ink);
+  border-bottom: 1px solid rgba(234, 226, 220, .15);
+}
+
+.itin-strip__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.itin-strip__facts dt,
+.carousel__counter {
+  color: var(--label);
+  font-size: 14px;
+}
+
+.itin-strip__facts dd { margin-top: 4px; }
+
+@media (min-width: 768px) {
+  .itin-strip { padding-top: 28px; padding-bottom: 28px; }
+  .itin-strip__facts { display: flex; gap: 0; }
+  .itin-strip__facts > div {
+    padding: 0 32px;
+    border-right: 1px solid rgba(234, 226, 220, .25);
+  }
+  .itin-strip__facts > div:first-child { padding-left: 0; }
+  .itin-strip__facts > div:last-child { padding-right: 0; border-right: 0; }
+}
+
+.itin-buy {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* "Coming soon" tag: in place of the price and buttons, and on card photos */
+.soon-tag {
+  display: inline-block;
+  padding: 7px 12px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  line-height: 1.2;
+}
+
+.itin-price {
+  font-family: var(--serif);
+  font-size: 40px;
+  line-height: 1;
+  color: var(--on-image);
+}
+
+/* Solid buy button, like the signup form's */
+.buy-button {
+  display: inline-flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 28px;
+  background: var(--button);
+  color: var(--on-image);
+  font-size: 18px;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color .2s ease;
+}
+
+.buy-button:hover,
+.buy-button:focus-visible {
+  background: #a46d37;
+}
+
+/* At a glance: the story page's "Before you go" pattern (_story.css) */
+.itinerary .notes__heading { margin-bottom: 24px; }
+
+@media (min-width: 900px) {
+  .itinerary .notes__heading { margin-bottom: 0; }
+}
+
+/* What you'll experience */
+.itin-experience {
+  padding: 56px 0;
+}
+
+.itin-experience .notes__heading {
+  color: inherit;
+}
+
+.itin-experience__text {
+  max-width: 640px;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+@media (min-width: 768px) {
+  .itin-experience__text { font-size: 19px; }
+}
+
+@media (min-width: 900px) {
+  .itin-experience { padding: 88px 0; }
+}
+
+/*
+  Carousel: every photo the same height at its natural width. On phones the
+  height shrinks so a landscape photo always fits the screen.
+  Without JavaScript the row scrolls sideways.
+*/
+.carousel {
+  margin-top: 40px;
+  padding: 0 var(--pad);
+}
+
+.carousel__viewport {
+  overflow-x: auto;
+}
+
+.carousel.is-ready .carousel__viewport {
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.carousel__track {
+  display: flex;
+  gap: 12px;
+}
+
+.carousel.is-ready .carousel__track {
+  transition: transform .5s ease;
+}
+
+.carousel__slide {
+  flex: none;
+  height: min(520px, 58vw);
+  width: auto;
+  max-width: none;
+}
+
+.carousel__controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.carousel__controls[hidden] { display: none; }
+
+.carousel__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: 1px solid rgba(234, 226, 220, .5);
+  color: var(--paper);
+  cursor: pointer;
+  transition: border-color .2s ease;
+}
+
+.carousel__button:hover,
+.carousel__button:focus-visible {
+  border-color: var(--on-image);
+}
+
+.carousel__counter { font-size: 15px; }
+
+@media (min-width: 900px) {
+  .carousel { margin-top: 48px; }
+  .carousel__track { gap: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel.is-ready .carousel__track { transition: none; }
+}
+
+/* Buy band */
+.itin-band {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px 40px;
+  padding: 56px var(--pad);
+  background: var(--brown);
+}
+
+.itin-band__text {
+  max-width: 560px;
+}
+
+.itin-band__heading {
+  font-size: clamp(28px, 2.3vw, 32px);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.itin-band__text p {
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.itin-buy--large {
+  gap: 32px;
+}
+
+.itin-buy--large .itin-price {
+  font-size: clamp(48px, 4.5vw, 64px);
+}
+
+.itin-buy--large .buy-button {
+  height: 56px;
+  padding: 0 32px;
+}
+
+@media (min-width: 768px) {
+  .itin-band__text p { font-size: 19px; }
+}
+
+@media (min-width: 900px) {
+  .itin-band { padding-top: 80px; padding-bottom: 80px; }
+}
+
+/*
+  Itineraries page: one card per itinerary, inside the page margins.
+  The photo sits beside a dark panel from 900px; stacked on phones.
+*/
+.itin-cards {
+  display: grid;
+  gap: 24px;
+  padding: 0 var(--pad) 64px;
+}
+
+.itin-card {
+  display: grid;
+  background: var(--ink);
+  color: var(--on-image);
+  text-decoration: none;
+}
+
+.itin-card__photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+}
+
+.itin-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s ease;
+}
+
+.itin-card:hover .itin-card__img { transform: scale(1.04); }
+
+.itin-card__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px 24px 32px;
+}
+
+.itin-card__label {
+  color: var(--label);
+  font-size: 14px;
+  letter-spacing: .04em;
+  line-height: 1.4;
+}
+
+.itin-card__title {
+  margin-top: 10px;
+  font-size: clamp(32px, 3.2vw, 46px);
+  line-height: 1.05;
+  --rule-width: 1.4em;
+  --rule-gap: .35em;
+}
+
+.itin-card__text {
+  margin-top: 14px;
+  max-width: 560px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.itin-card__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.itin-card__facts dt {
+  color: var(--label);
+  font-size: 14px;
+}
+
+.itin-card__facts dd { margin-top: 2px; }
+
+/* Price on the left, button against the panel's right edge */
+.itin-card .itin-buy {
+  align-self: stretch;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+
+/* Coming soon cards: a tag on the photo, and a text link in place of the button */
+.itin-card__tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 1;
+}
+
+@media (min-width: 900px) {
+  .itin-card__tag { top: 24px; left: 24px; }
+}
+
+.itin-card__more {
+  margin-left: auto;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.itin-card__more .u {
+  text-decoration-color: rgba(243, 236, 230, .6);
+  transition: text-decoration-color .2s ease;
+}
+
+.itin-card:hover .itin-card__more .u,
+.itin-card:focus-visible .itin-card__more .u {
+  text-decoration-color: currentColor;
+}
+
+.itin-card:hover .buy-button,
+.itin-card:focus-visible .buy-button {
+  background: #a46d37;
+}
+
+@media (min-width: 900px) {
+  .itin-cards {
+    gap: 32px;
+    padding-bottom: 88px;
+  }
+  .itin-card {
+    grid-template-columns: 1fr 1fr;
+  }
+  .itin-card__photo { aspect-ratio: auto; min-height: 440px; }
+  .itin-card__panel {
+    justify-content: center;
+    padding: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .itin-card__img { transition: none; }
+}
