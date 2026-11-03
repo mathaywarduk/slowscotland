@@ -1,11 +1,11 @@
 ---
-title: "Mountains and Lochs of the Trossachs"
+title: "Trossachs and beyond"
 # Browser tab, search results and social previews only (adds " - Slow Scotland")
 seo_title: "Trossachs Itinerary: 3 or 6 Days of Hills and Lochs"
 # Page heading. --- places the rule, *asterisks* make italics.
 heading:
-  - "Mountains and Lochs"
-  - "of the --- *Trossachs*"
+  - "Trossachs"
+  - "--- *and beyond*"
 description: "A 3 or 6 day itinerary for the quieter side of the Trossachs, with hill walks at golden hour, a sauna and loch swim, a day on the water and Loch Fyne."
 # Not on sale yet: shows "Coming soon" instead of the price and buy buttons.
 # Delete when it's on sale.
